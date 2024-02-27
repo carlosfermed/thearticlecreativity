@@ -138,15 +138,24 @@
         <h4 id="usuario" style="color: orange;"><?= $_SESSION["usuario"] ?></h4>
     </header>
     <nav>
-        <a href="/sesion">Inicio</a>
-        <a href="/finalizarsesion">Cerrar Sesión</a>
-        <a href="/articulo">Introducir Artículo</a>       
-        
+        <a href="/sesion">Volver</a>
     </nav>
-
-
-<!-- Falta implementar zona de Artículos -->
-<!-- Template visualizacionArticulos.php que correspondería solo a la muestra de los artículos, para poder luego meter ese bloque dentro de este como un template-->
+    <form action="">    <!--  Pendiente!!! -->
+        Título <input type="text" name="titulo" required/>
+        <br>
+        Imagen <input type="file" name="imagen" required/>
+        <br>
+        <textarea type="text" rows="15" name="texto" placeholder="Este artículo trata sobre..." required/></textarea>
+        <br>
+        Temática 
+        <select name="tipoArticulo">
+            <option value="alimentacion">Alimentación</option>
+            <option value="deporte">Deporte</option>
+            <option value="ciencia">Ciencia</option>
+        </select>
+        <br>
+        <input type="submit" value="Publicar artículo" class="boton"/>
+    </form>
 
 
 

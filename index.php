@@ -5,9 +5,8 @@
      */
     define('CON_CONTROLADOR', true);
     
-    include 'controllers/controller.php';    
+    include 'controllers/controller.php';  
 
-    // Encamina la petición internamente.
     $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
     // echo $_SERVER["REQUEST_URI"];
     
@@ -22,6 +21,12 @@
     } 
     elseif ($uri == '/sesion') {
         mostrarSesion();
+    } 
+    elseif ($uri == '/articulo') {
+        introducirArticulo();
+    } 
+    elseif ($uri == '/finalizarsesion') {
+        finalizarSesion();
     } 
     else {
         header("HTTP/1.0 404 Not Found");

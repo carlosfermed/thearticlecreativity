@@ -37,11 +37,11 @@
 <?php include 'templates/header.php' ?>
     <main>
         <form action="login.php" method="post">
-        Usuario <input type="text" name="usuario"/>
+        Usuario <input type="text" name="usuario" required/>
         <br>
-        Contraseña <input type="password" name="contrasenia"/>
+        Contraseña <input type="password" name="contrasenia" required/>
         <br>            
-        Email <input type="email" name="email"/>
+        Email <input type="email" name="email" required/>
         <br>
         <input type="submit" value="Registrarme" id="boton"/>
         </form>

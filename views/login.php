@@ -18,8 +18,7 @@
     function validarUsuario($usuario, $contrasenia) {
         if ($usuario === "foc" && $contrasenia === "222") {
             $_SESSION["usuario"] = $usuario;
-            $_SESSION["contrasenia"] = $contrasenia;
-        
+            $_SESSION["contrasenia"] = $contrasenia;        
             return true;
         }             
         else 
@@ -30,11 +29,11 @@
 <?php include 'templates/header.php' ?>
         <main>
             <form action="login" method="post">
-            Usuario <input type="text" name="usuario"/>
+            Usuario <input type="text" name="usuario" required/>
             <br>
-            Contraseña <input type="password" name="contrasenia"/>
+            Contraseña <input type="password" name="contrasenia" required/>
             <br>
-            <input type="submit" value="Enviar" id="boton"/>
+            <input type="submit" value="Entrar" id="boton"/>
             </form>
         </main>        
 <?php include 'templates/footer.php' ?>
