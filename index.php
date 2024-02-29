@@ -28,6 +28,9 @@
     elseif ($uri == '/finalizarsesion') {
         finalizarSesion();
     } 
+    elseif ($uri == '/formulario') {  //  prueba
+        procesarFormulario();
+    } 
     else {
         header("HTTP/1.0 404 Not Found");
         echo '<html><body><h1>Página no encontrada</h1></body></html>';

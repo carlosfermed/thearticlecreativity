@@ -36,12 +36,14 @@
 ?>
 <?php include 'templates/header.php' ?>
     <main>
-        <form action="login.php" method="post">
+        <form action="login.php" method="post" enctype="multipart/form-data">
         Usuario <input type="text" name="usuario" required/>
         <br>
         Contraseña <input type="password" name="contrasenia" required/>
         <br>            
         Email <input type="email" name="email" required/>
+        <br>
+        Imagen <input type="file" name="imagen" required/>
         <br>
         <input type="submit" value="Registrarme" id="boton"/>
         </form>

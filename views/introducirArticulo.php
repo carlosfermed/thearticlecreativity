@@ -140,11 +140,9 @@
     <nav>
         <a href="/sesion">Volver</a>
     </nav>
-    <form action="">    <!--  Pendiente!!! -->
+    <form action="formulario" method="post" >    <!--  Pendiente!!! -->
         Título <input type="text" name="titulo" required/>
-        <br>
-        Imagen <input type="file" name="imagen" required/>
-        <br>
+        <br>        
         <textarea type="text" rows="15" name="texto" placeholder="Este artículo trata sobre..." required/></textarea>
         <br>
         Temática 
@@ -152,11 +150,9 @@
             <option value="alimentacion">Alimentación</option>
             <option value="deporte">Deporte</option>
             <option value="ciencia">Ciencia</option>
+            <option value="tecnologia">Tecnología</option>
         </select>
         <br>
         <input type="submit" value="Publicar artículo" class="boton"/>
     </form>
-
-
-
 <?php include 'templates/footer.php'; ?>

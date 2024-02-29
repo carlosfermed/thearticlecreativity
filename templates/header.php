@@ -136,6 +136,4 @@
         <a href="/">Inicio</a>
         <a href="/login">Login</a>
         <a href="/registro">Registro</a>
-        <a href="/registro" style="display: none;" >Introducir Artículo</a>         <!-- Hay que modificar el display para mostrar cuando el usuario este logueado -->
-
     </nav>

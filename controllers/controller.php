@@ -1,6 +1,6 @@
 
 <?php
-
+    
     function mostrarIndexPrincipal() {
         include 'views/index.php';
     }
@@ -25,6 +25,15 @@
         unset($_SESSION["usuario"]);
         unset($_SESSION["contrasenia"]);
         header("Location: login");
+    }
+
+    function procesarFormulario() {
+        if ($_POST) {
+            print_r($_POST);
+            print_r($_FILES);
+            $imageurl = $_FILES["imagen"]["tmp_name"];
+            move_uploaded_file($imageurl, "public/img/azura.jpg");
+        }
     }
 
 ?>

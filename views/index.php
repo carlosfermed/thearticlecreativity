@@ -11,5 +11,6 @@
 ?>
 
 <?php //  Añadir template con los artículos varios ?>
+<?php include 'visualizarArticulos.php'; ?>
 
 <?php include 'templates/footer.php'; ?>
