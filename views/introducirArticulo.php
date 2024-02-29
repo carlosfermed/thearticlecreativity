@@ -7,7 +7,6 @@
         die();
     }
 
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,12 +137,12 @@
         <h4 id="usuario" style="color: orange;"><?= $_SESSION["usuario"] ?></h4>
     </header>
     <nav>
-        <a href="/sesion">Volver</a>
+        <a href="sesion">Volver</a>
     </nav>
     <form action="formulario" method="post" >    <!--  Pendiente!!! -->
         Título <input type="text" name="titulo" required/>
         <br>        
-        <textarea type="text" rows="15" name="texto" placeholder="Este artículo trata sobre..." required/></textarea>
+        <textarea type="text" rows="15" name="contenido" placeholder="Este artículo trata sobre..." required/></textarea>
         <br>
         Temática 
         <select name="tipoArticulo">
@@ -152,6 +151,7 @@
             <option value="ciencia">Ciencia</option>
             <option value="tecnologia">Tecnología</option>
         </select>
+        <input type="text" name="nombreUsuario" value="<?= $_SESSION["usuario"] ?>" hidden >
         <br>
         <input type="submit" value="Publicar artículo" class="boton"/>
     </form>

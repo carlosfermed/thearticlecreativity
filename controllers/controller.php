@@ -27,12 +27,25 @@
         header("Location: login");
     }
 
-    function procesarFormulario() {
-        if ($_POST) {
-            print_r($_POST);
-            print_r($_FILES);
-            $imageurl = $_FILES["imagen"]["tmp_name"];
-            move_uploaded_file($imageurl, "public/img/azura.jpg");
+    function procesarFormularioUsuario() {
+        // PENDIENTE
+    }
+
+    function procesarFormularioArticulo() {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST["titulo"]) && isset($_POST["contenido"]) && isset($_POST["tipoArticulo"]) &&  isset($_POST["nombreUsuario"])) {
+                include "models/publicaciones.php";
+
+                $publicacion = new conexionPublicaciones();
+
+                $publicacion->introducirArticulo($_POST["titulo"], $_POST["contenido"], $_POST["tipoArticulo"], $_POST["nombreUsuario"]);
+                
+                echo "Artículo creado con éxito<br>";
+                echo "<a href='sesion' style='color: green;'>Continuar</a>";
+            }
+
+
+
         }
     }
 

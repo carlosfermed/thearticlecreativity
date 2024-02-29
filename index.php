@@ -29,7 +29,7 @@
         finalizarSesion();
     } 
     elseif ($uri == '/formulario') {  //  prueba
-        procesarFormulario();
+        procesarFormularioArticulo();
     } 
     else {
         header("HTTP/1.0 404 Not Found");
