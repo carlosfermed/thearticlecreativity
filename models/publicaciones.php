@@ -34,11 +34,29 @@
             }
         }
 
+        // Todos los artículos
         public function listarArticulos() {
             $con = $this->realizarConexion();
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos");
+                if ($resultado) {
+                    return $resultado;
+                } 
+                else {
+                    throw new Exception("Error al ejecutar la consulta: " . $con->error);
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+
+        // Artículo individual
+        public function getArticulo($id) {
+            $con = $this->realizarConexion();
+
+            try {
+                $resultado = $con->query("SELECT * FROM articulos WHERE id = $id");
                 if ($resultado) {
                     return $resultado;
                 } 

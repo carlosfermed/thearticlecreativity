@@ -27,6 +27,23 @@
             /* background-position: center; */
             background-size: cover;
         }
+        /* importante para mostrar los artículos individuales */
+        main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        div {
+            border: 1px solid black;
+            width: 400px;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        .enlace {
+            padding: 10px;
+        }
+        /* ___________________________________________________ */
 
         h1 {
             font-family: Script Normal;
@@ -66,7 +83,7 @@
             /* font-family: Script Normal; */
         }
 
-        a:last-child {
+        #introducirArticulo {
             border: 2px solid orange;
         }
 
@@ -138,9 +155,9 @@
         <h4 id="usuario" style="color: orange;"><?= $_SESSION["usuario"] ?></h4>
     </header>
     <nav>
-        <a href="/sesion">Inicio</a>  <!-- se podría eliminar esta opción -->
+        <!-- <a href="/sesion">Inicio</a>  se podría eliminar esta opción -->
         <a href="/finalizarsesion">Cerrar Sesión</a>
-        <a href="/articulo">Introducir Artículo</a>       
+        <a id="introducirArticulo" href="/articulo">Introducir Artículo</a>       
         
     </nav>
 

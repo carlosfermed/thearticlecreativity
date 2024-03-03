@@ -19,7 +19,7 @@ que se muestren los artículos -->
             $articulos[] = $row;
         }
         foreach($articulos as $articulo) {
-            echo "<div class='item'> título: " . $articulo->titulo . " <br> contenido: " . $articulo->contenido . " <br> fecha:  " . $articulo->fecha . "</div><br><br>";
+            echo "<div class='item'> Título: <a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>" . $articulo->titulo . " </a><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha . "</div><br><br>";
         }
         // print_r($autores);
 
@@ -29,4 +29,6 @@ que se muestren los artículos -->
 
 <!-- <div style="display: flex; align-items: center; border: 2px solid black; width: 300px; height: 300px">
     <img src="public/img/azura.jpg" alt="Foto Azura" style="height: 300px"/>
+
+    echo "<a href='/mostrarArticuloIndividual?id=" . $articulo->id . "'><div class='item'> título: " . $articulo->titulo . " <br> contenido: " . $articulo->contenido . " <br> fecha:  " . $articulo->fecha . "</div></a><br><br>";
 </div> -->

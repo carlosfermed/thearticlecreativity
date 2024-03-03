@@ -1,6 +1,3 @@
-
-<!-- Vista principal (Landing Page) -->
-
 <?php 
     if (!defined('CON_CONTROLADOR')) {
         echo "Acceso denegado. No se puede solicitar este archivo directamente.";
@@ -10,6 +7,13 @@
     include 'templates/header.php'; 
 ?>
 
-<?php include 'visualizarArticulos.php'; ?>
+<?php 
+    // Crear todo el contenido que mostrará los artículos de forma individual
+
+
+
+
+
+?>
 
 <?php include 'templates/footer.php'; ?>

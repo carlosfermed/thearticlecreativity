@@ -24,21 +24,20 @@
     function finalizarSesion() {
         unset($_SESSION["usuario"]);
         unset($_SESSION["contrasenia"]);
-        header("Location: login");
+        header("Location: /");      // Hemos modificado login por '/' para dirigirlo a la landing page, en el futuro habrá que anotar la URL de la web
     }
 
-    function procesarFormularioUsuario() {
+    function procesarFormularioUsuario() {          // pendiente
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             include "models/publicaciones.php";
 
             $publicacion = new conexionPublicaciones();
 
-            $publicacion->listarArticulos();
-            $resultado = $con -> query($query);            
+            $publicacion->listarArticulos();            
+            $resultado = $con -> query($query);           
             while ($row = $resultado -> fetch_object()) {
                 $autores[] = $row;
             }
-
         }
         
     }
@@ -60,6 +59,18 @@
 
         }
         // mostrar aviso que indique que no se ha enviado el formulario (opcional)
+    }
+
+    function mostrarArticuloIndividual($id) {
+        include "models/publicaciones.php";
+
+        $publicacion = new conexionPublicaciones();
+
+        $resultado = $publicacion->getArticulo($id);
+
+        $articuloIndividual = $resultado->fetch_object();
+
+        echo "<div class='articuloCompleto'>Cotenido: " . $articuloIndividual->contenido . "<br>Fecha: " . $articuloIndividual->fecha . "<br>LIKES ( )</div>";
     }
 
 ?>

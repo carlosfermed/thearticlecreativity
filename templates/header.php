@@ -22,9 +22,10 @@
             /* background-position: center; */
             background-size: cover;
         }
-
+        /* importante para mostrar los artículos individuales */
         main {
             display: flex;
+            flex-wrap: wrap;
         }
 
         div {
@@ -33,6 +34,7 @@
             padding: 10px;
             margin: 20px;
         }
+        /* ___________________________________________________ */
 
         h1 {
             font-family: Script Normal;
@@ -72,7 +74,7 @@
             /* font-family: Script Normal; */
         }
 
-        a:last-child {
+        #introducirArticulo {
             border: 2px solid orange;
         }
 

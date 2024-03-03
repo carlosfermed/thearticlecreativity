@@ -151,6 +151,7 @@
             <option value="ciencia">Ciencia</option>
             <option value="tecnologia">Tecnología</option>
             <option value="cine">Cine</option>
+            <option value="sucesos">Sucesos</option>
         </select>
         <input type="text" name="nombreUsuario" value="<?= $_SESSION["usuario"] ?>" hidden >
         <br>
