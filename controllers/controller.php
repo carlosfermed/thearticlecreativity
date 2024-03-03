@@ -28,7 +28,19 @@
     }
 
     function procesarFormularioUsuario() {
-        // PENDIENTE
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            include "models/publicaciones.php";
+
+            $publicacion = new conexionPublicaciones();
+
+            $publicacion->listarArticulos();
+            $resultado = $con -> query($query);            
+            while ($row = $resultado -> fetch_object()) {
+                $autores[] = $row;
+            }
+
+        }
+        
     }
 
     function procesarFormularioArticulo() {
@@ -44,9 +56,10 @@
                 echo "<a href='sesion' style='color: green;'>Continuar</a>";
             }
 
-
+            //implementar else que controle los tipos de datos recogidos
 
         }
+        // mostrar aviso que indique que no se ha enviado el formulario (opcional)
     }
 
 ?>

@@ -23,6 +23,17 @@
             background-size: cover;
         }
 
+        main {
+            display: flex;
+        }
+
+        div {
+            border: 1px solid black;
+            width: 400px;
+            padding: 10px;
+            margin: 20px;
+        }
+
         h1 {
             font-family: Script Normal;
         }
@@ -122,7 +133,7 @@
             width: 100%;
         }
 
-        span {
+        #derechos {
             font-size: 11px;
         }
     </style>

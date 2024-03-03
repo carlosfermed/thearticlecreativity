@@ -12,7 +12,7 @@
             exit; // exit();
         }
         else
-            echo "<span>Credenciales incorrectas</span>";
+            echo "<h3><span style='color: red'>Credenciales incorrectas</span></h3>";
     }
     
     function validarUsuario($usuario, $contrasenia) {

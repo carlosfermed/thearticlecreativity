@@ -6,7 +6,7 @@
         private $contrasenia = "";
         private $bd = "publicaciones";
 
-        public function realizarConexion() {
+        private function realizarConexion() {
             try {
                 $conexion = new mysqli($this->servidor, $this->usuario, $this->contrasenia, $this->bd);
             } 
@@ -32,11 +32,6 @@
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
             }
-            
-
-            //INSERT INTO `articulos` (`id`, `titulo`, `contenido`, `tipo`, `fecha`, `usuarioCreador`) VALUES (NULL, 'Megalodón', 'La última película de Robert Ramirez que rompe records de taquilla.', 'tecnologia', '2024-02-29', 'carlos');
-
-
         }
 
         public function listarArticulos() {
@@ -58,3 +53,5 @@
     }
 
 ?>
+
+<!--  Falta cerrar conexion $con->close() -->

@@ -138,7 +138,7 @@
         <h4 id="usuario" style="color: orange;"><?= $_SESSION["usuario"] ?></h4>
     </header>
     <nav>
-        <a href="/sesion">Inicio</a>
+        <a href="/sesion">Inicio</a>  <!-- se podría eliminar esta opción -->
         <a href="/finalizarsesion">Cerrar Sesión</a>
         <a href="/articulo">Introducir Artículo</a>       
         
