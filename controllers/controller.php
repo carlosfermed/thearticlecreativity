@@ -9,6 +9,30 @@
         include 'views/login.php';
     }
 
+    function verificarLogin() {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST["usuario"]) && isset($_POST["contrasenia"])) {
+                session_start();
+                include 'models/publicaciones.php';
+                
+                $usuario = $_POST["usuario"];
+                $contrasenia = $_POST["contrasenia"];
+
+                $validar = new conexionPublicaciones();
+                $resultado = $validar->getUsuario($usuario);
+                $usuarioBD = $resultado->fetch_object();
+
+                if ($usuario === $usuarioBD->nombre && $contrasenia === $usuarioBD->contrasenia) {
+                    $_SESSION["usuario"] = $usuario;   
+                    header("Location: sesion");
+                    exit; // exit();
+                }
+                else
+                    echo "<h3><span style='color: red'>Credenciales incorrectas</span></h3>";
+            }
+        }
+    }
+
     function formularioRegistro() {
         include 'views/registro.php';
     }
@@ -17,16 +41,16 @@
         include 'views/sesion.php';
     }
 
-    function introducirArticulo() {
-        include 'views/introducirArticulo.php';
-    }
-
     function finalizarSesion() {
         session_unset(); // Eliminar todas las variables de sesión
         echo "<main style='text-align: center;'>";
         echo "<h3>Has cerrado tu sesión.</h3>";
         echo "<a href='/' style='color: green'>Inicio</a>";
         echo "</main>";
+    }
+
+    function introducirArticulo() {
+        include 'views/introducirArticulo.php';
     }
 
     function procesarFormularioArticulo() {

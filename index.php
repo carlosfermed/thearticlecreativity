@@ -16,6 +16,9 @@
     elseif ($uri == '/login') {
         formularioLogin();
     } 
+    elseif ($uri == '/verificarlogin') {
+        verificarLogin();
+    } 
     elseif ($uri == '/registro') {
         formularioRegistro();
     } 
@@ -31,14 +34,14 @@
     elseif ($uri == '/formulario') {  
         procesarFormularioArticulo();
     } 
-    elseif ($uri == '/formulariousuario') {  //  prueba
-        procesarFormularioUsuario();
-    } 
     elseif ($uri == '/mostrarArticuloIndividual') {
         if (isset($_GET["id"])) {
             mostrarArticuloIndividual($_GET["id"]);
         }
     }
+    elseif ($uri == '/formulariousuario') { 
+        procesarFormularioUsuario();
+    } 
     else {
         header("HTTP/1.0 404 Not Found");
         echo '<html><body><h1>Página no encontrada</h1></body></html>';
