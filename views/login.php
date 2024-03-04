@@ -16,9 +16,17 @@
     }
     
     function validarUsuario($usuario, $contrasenia) {
-        if ($usuario === "foc" && $contrasenia === "222") {
+        include 'models/publicaciones.php';
+
+        $validar = new conexionPublicaciones();
+
+        $resultado = $validar->getUsuario($usuario);
+
+        $usuarioBD = $resultado->fetch_object();
+
+        if ($usuario === $usuarioBD->nombre && $contrasenia === $usuarioBD->contrasenia) {
             $_SESSION["usuario"] = $usuario;
-            $_SESSION["contrasenia"] = $contrasenia;        
+            // $_SESSION["contrasenia"] = $contrasenia;   NO NECESARIA DE ALMACENAR     
             return true;
         }             
         else 

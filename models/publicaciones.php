@@ -44,7 +44,7 @@
                     return $resultado;
                 } 
                 else {
-                    throw new Exception("Error al ejecutar la consulta: " . $con->error);
+                    throw new Exception("Algún tipo de error se produjo al ejecutar la consulta: " . $con->error);
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
@@ -61,11 +61,29 @@
                     return $resultado;
                 } 
                 else {
-                    throw new Exception("Error al ejecutar la consulta: " . $con->error);
+                    throw new Exception("Algún tipo de error se produjo al ejecutar la consulta: " . $con->error);
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
             }
+        }
+
+        function getUsuario($usuario) {
+            $con = $this->realizarConexion();
+
+            try {
+                $resultado = $con->query("SELECT * FROM usuarios WHERE nombre = '$usuario'");
+                if ($resultado) {                    
+                    return $resultado;
+                } 
+                else {
+                    throw new Exception("No se encontró ningún usuario con ese nombre: " . $con->error);
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+
+
         }
 
     }

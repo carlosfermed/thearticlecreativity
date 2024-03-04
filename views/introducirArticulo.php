@@ -139,7 +139,7 @@
     <nav>
         <a href="sesion">Volver</a>
     </nav>
-    <form action="formulario" method="post" >    <!--  Pendiente!!! -->
+    <form action="formulario" method="post" >
         Título <input type="text" name="titulo" required/>
         <br>        
         <textarea type="text" rows="15" name="contenido" placeholder="Este artículo trata sobre..." required/></textarea>
