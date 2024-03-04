@@ -10,9 +10,10 @@
     }
 
     function verificarLogin() {
+        session_start();
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["usuario"]) && isset($_POST["contrasenia"])) {
-                session_start();
                 include 'models/publicaciones.php';
                 
                 $usuario = $_POST["usuario"];
@@ -22,13 +23,14 @@
                 $resultado = $validar->getUsuario($usuario);
                 $usuarioBD = $resultado->fetch_object();
 
-                if ($usuario === $usuarioBD->nombre && $contrasenia === $usuarioBD->contrasenia) {
-                    $_SESSION["usuario"] = $usuario;   
-                    header("Location: sesion");
-                    exit; // exit();
-                }
-                else
-                    echo "<h3><span style='color: red'>Credenciales incorrectas</span></h3>";
+                if ($usuarioBD != null) {
+                    if (password_verify($contrasenia, $usuarioBD->contrasenia) && $usuario === $usuarioBD->nombre) {
+                        $_SESSION["usuario"] = $usuario;   
+                        header("Location: sesion");
+                        exit; // exit();
+                    }
+                } else 
+                    echo "<h3><span style='color: red'>Credenciales incorrectas</span></h3>";                
             }
         }
     }
@@ -93,7 +95,7 @@
                 isset($_POST["email"])       ) {
                 
                 $usuario = $_POST["usuario"];
-                $contrasenia = $_POST["contrasenia"];
+                $contrasenia = password_hash($_POST["contrasenia"], PASSWORD_DEFAULT);
                 $email = $_POST["email"];
                 
                 include 'models/publicaciones.php';
