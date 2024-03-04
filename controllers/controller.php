@@ -70,7 +70,7 @@
 
         $articuloIndividual = $resultado->fetch_object();
 
-        echo "<div class='articuloCompleto'>Cotenido: " . $articuloIndividual->contenido . "<br>Fecha: " . $articuloIndividual->fecha . "<br>LIKES ( )</div>";
+        include 'views/visualizarArticuloIndividual.php';
     }
 
 ?>

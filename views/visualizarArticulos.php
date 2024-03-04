@@ -19,7 +19,9 @@ que se muestren los artículos -->
             $articulos[] = $row;
         }
         foreach($articulos as $articulo) {
-            echo "<div class='item'> Título: <a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>" . $articulo->titulo . " </a><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha . "</div><br><br>";
+            echo "<div class='item'> Título: <a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>" 
+                . $articulo->titulo . " </a><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
+                . "<br>Creador: " . $articulo->usuarioCreador . "</div><br><br>";
         }
         // print_r($autores);
 
