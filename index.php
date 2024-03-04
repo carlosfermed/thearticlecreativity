@@ -22,13 +22,13 @@
     elseif ($uri == '/sesion') {
         mostrarSesion();
     } 
-    elseif ($uri == '/articulo') {
-        introducirArticulo();
-    } 
     elseif ($uri == '/finalizarsesion') {
         finalizarSesion();
     } 
-    elseif ($uri == '/formulario') {  //  prueba
+    elseif ($uri == '/articulo') {
+        introducirArticulo();
+    } 
+    elseif ($uri == '/formulario') {  
         procesarFormularioArticulo();
     } 
     elseif ($uri == '/formulariousuario') {  //  prueba

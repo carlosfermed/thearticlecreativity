@@ -27,7 +27,7 @@
                     return $resultado;
                 } 
                 else {
-                    throw new Exception("Error al ejecutar la consulta: " . $con->error);
+                    throw new Exception("Fallo al ejecutar la consulta: " . $con->error);
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
@@ -62,6 +62,24 @@
                 } 
                 else {
                     throw new Exception("Algún tipo de error se produjo al ejecutar la consulta: " . $con->error);
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+
+        public function introducirUsuario($usuarioFormulario, $contrasenia, $email) {
+            $con = $this->realizarConexion();
+            // $fecha = date('Y-m-d');
+            $query = "INSERT INTO `usuarios` (`nombre`, `contrasenia`, `email`) VALUES ('$usuarioFormulario', '$contrasenia', '$email');";
+
+            try {
+                $resultado = $con->query($query);
+                if ($resultado) {
+                    return $resultado;
+                } 
+                else {
+                    throw new Exception("Fallo al ejecutar la consulta: " . $con->error);
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();

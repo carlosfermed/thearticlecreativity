@@ -22,24 +22,11 @@
     }
 
     function finalizarSesion() {
-        unset($_SESSION["usuario"]);
-        unset($_SESSION["contrasenia"]);
-        header("Location: /");      // Hemos modificado login por '/' para dirigirlo a la landing page, en el futuro habrá que anotar la URL de la web
-    }
-
-    function procesarFormularioUsuario() {          // pendiente
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            include "models/publicaciones.php";
-
-            $publicacion = new conexionPublicaciones();
-
-            $publicacion->listarArticulos();            
-            $resultado = $con -> query($query);           
-            while ($row = $resultado -> fetch_object()) {
-                $autores[] = $row;
-            }
-        }
-        
+        session_unset(); // Eliminar todas las variables de sesión
+        echo "<main style='text-align: center;'>";
+        echo "<h3>Has cerrado tu sesión.</h3>";
+        echo "<a href='/' style='color: green'>Inicio</a>";
+        echo "</main>";
     }
 
     function procesarFormularioArticulo() {
@@ -51,8 +38,10 @@
 
                 $publicacion->introducirArticulo($_POST["titulo"], $_POST["contenido"], $_POST["tipoArticulo"], $_POST["nombreUsuario"]);
                 
-                echo "Artículo creado con éxito<br>";
-                echo "<a href='sesion' style='color: green;'>Continuar</a>";
+                echo "<main style='text-align: center;'>";
+                echo "<h3>Artículo creado con éxito.</h3>";
+                echo "<a href='sesion' style='color: green'>Continuar</a>";
+                echo "</main>";
             }
 
             //implementar else que controle los tipos de datos recogidos
@@ -71,6 +60,31 @@
         $articuloIndividual = $resultado->fetch_object();
 
         include 'views/visualizarArticuloIndividual.php';
+    }
+
+    function procesarFormularioUsuario() {          // pendiente
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST["usuario"]) && 
+                isset($_POST["contrasenia"]) &&
+                isset($_POST["email"])       ) {
+                
+                $usuario = $_POST["usuario"];
+                $contrasenia = $_POST["contrasenia"];
+                $email = $_POST["email"];
+                
+                include 'models/publicaciones.php';
+
+                $publicacion = new ConexionPublicaciones();
+
+                $publicacion->introducirUsuario($usuario, $contrasenia, $email);
+
+                echo "<main style='text-align: center;'>";                
+                echo "<h3>Usuario creado con éxito, ya puedes acceder mediante Login a tu cuenta.</h3>";
+                echo "<a href='/' style='color: green;margin: auto;'>Continuar</a>";
+                echo "</main>";
+
+            }
+        }        
     }
 
 ?>
