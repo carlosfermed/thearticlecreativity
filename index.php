@@ -39,6 +39,11 @@
             mostrarArticuloIndividual($_GET["id"]);
         }
     }
+    elseif ($uri == '/eliminar') {
+        if (isset($_POST["idEliminar"])) {
+            eliminarArticulo($_POST["idEliminar"]);
+        }
+    } 
     elseif ($uri == '/formulariousuario') { 
         procesarFormularioUsuario();
     } 

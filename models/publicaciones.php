@@ -44,7 +44,7 @@
                     return $resultado;
                 } 
                 else {
-                    throw new Exception("Algún tipo de error se produjo al ejecutar la consulta: " . $con->error);
+                    throw new Exception("Se produjo un error al ejecutar la consulta: " . $con->error);
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
@@ -61,7 +61,24 @@
                     return $resultado;
                 } 
                 else {
-                    throw new Exception("Algún tipo de error se produjo al ejecutar la consulta: " . $con->error);
+                    throw new Exception("Se produjo un error al ejecutar la consulta: " . $con->error);
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+
+        // Eliminar artículo
+        public function eliminarArticulo($id) {
+            $con = $this->realizarConexion();
+
+            try {
+                $resultado = $con->query("DELETE FROM articulos WHERE id = $id");
+                if ($resultado) {
+                    return $resultado;
+                } 
+                else {
+                    throw new Exception("Se produjo un error al ejecutar la consulta: " . $con->error);
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
@@ -70,7 +87,6 @@
 
         public function introducirUsuario($usuarioFormulario, $contrasenia, $email) {
             $con = $this->realizarConexion();
-            // $fecha = date('Y-m-d');
             $query = "INSERT INTO `usuarios` (`nombre`, `contrasenia`, `email`) VALUES ('$usuarioFormulario', '$contrasenia', '$email');";
 
             try {

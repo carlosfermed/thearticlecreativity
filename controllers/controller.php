@@ -80,12 +80,28 @@
         include "models/publicaciones.php";
 
         $publicacion = new conexionPublicaciones();
-
         $resultado = $publicacion->getArticulo($id);
-
         $articuloIndividual = $resultado->fetch_object();
 
         include 'views/visualizarArticuloIndividual.php';
+    }
+
+    function eliminarArticulo($id) {
+        include "models/publicaciones.php";
+
+        $publicacion = new conexionPublicaciones();
+        $resultado = $publicacion->eliminarArticulo($id);
+
+        if ($resultado) {
+            echo "<main style='text-align: center;'>";                
+            echo "<h3>Artículo Eliminado.</h3>";
+            echo "<a href='/' style='color: green;margin: auto;'>Continuar</a>";
+            echo "</main>";
+        }
+        else {
+            echo "<h3><span style='color: red'>No se pudo eliminar el artículo.</span></h3>";
+        }
+
     }
 
     function procesarFormularioUsuario() {          // pendiente

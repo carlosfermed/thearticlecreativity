@@ -10,6 +10,6 @@
     include 'templates/header.php'; 
 ?>
 
-<?php include 'visualizarArticulos.php'; ?>
+<?php include 'components/visualizarArticulos.php'; ?>
 
 <?php include 'templates/footer.php'; ?>

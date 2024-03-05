@@ -164,7 +164,7 @@
 
 <!-- Falta implementar zona de Artículos -->
 <!-- Template visualizacionArticulos.php que correspondería solo a la muestra de los artículos, para poder luego meter ese bloque dentro de este como un template-->
-<?php include 'visualizarArticulos.php'; ?>
+<?php include 'components/visualizarArticulos.php'; ?>
 
 
 
