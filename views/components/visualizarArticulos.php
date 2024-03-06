@@ -4,13 +4,29 @@
         die();
     }
 
-    include "models/publicaciones.php";    
+    include "models/publicaciones.php";   
+
+
+    // $url = "http://localhost:3000/";
+
+    // if (isset($_SESSION["usuario"])) 
+    //     $url = "sesion";
+    
+    // function sesionSioNo() {
+        // if ($_SESSION["usuario"])
+        //     echo "http://localhost:3000/sesion";
+        // else 
+        //     echo "http://localhost:3000/";
+    // }
+    // echo $url;
 ?>
 <!-- Este archivo debe ser una especie de Template para introducir en los archivos donde queramos
 que se muestren los artículos -->
 <main>
     <?php 
-        if (isset($tipo)) {
+        // $bool = isset($tipo);
+
+        if ((isset($tipo)) && ($tipo !== "todas")) {
             $articulos = array();
             $publicaciones = new conexionPublicaciones();
             $resultado = $publicaciones->listarArticulosFiltrados($tipo);            
@@ -41,10 +57,11 @@ que se muestren los artículos -->
         }
     ?>
 </main>
-<form action='http://localhost:3000/' method='post' style="position: fixed; top: 88%; left: 50%; transform: translate(-50%,-50%)" >
+
+<form action='filtrar' method='post' style="position: fixed; top: 88%; left: 50%; transform: translate(-50%,-50%)" >
     Temática 
     <select name="tipoArticulo">
-        <option value="todos">Todas</option>
+        <option value="todas">Todas</option>
 
         <option value="alimentacion">Alimentación</option>
         <option value="deporte">Deporte</option>
@@ -53,6 +70,7 @@ que se muestren los artículos -->
         <option value="cine">Cine</option>
         <option value="sucesos">Sucesos</option>
     </select>
+    <input type="text" value="<?= $miVariable ?>" name="url" hidden>
     <input type="submit" value="Filtrar" class="boton"/>
 </form>
 

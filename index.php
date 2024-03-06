@@ -3,6 +3,7 @@
      * index.php como controlador frontal.
      * 
      */
+
     define('CON_CONTROLADOR', true);
     
     include 'controllers/controller.php';  
@@ -11,16 +12,7 @@
     // echo $_SERVER["REQUEST_URI"];
     
     if ($uri == '/') {
-        if (isset($_POST["tipoArticulo"])) {
-            if ($_POST["tipoArticulo"] != "todos"){
-                filtrarArticulos($_POST["tipoArticulo"]);
-            }
-            else {
-                mostrarIndexPrincipal();
-            }
-        }
-        else
-            mostrarIndexPrincipal();
+        mostrarIndexPrincipal();
     } 
     elseif ($uri == '/login') {
         formularioLogin();
@@ -56,9 +48,11 @@
     elseif ($uri == '/formulariousuario') { 
         procesarFormularioUsuario();
     } 
-    // elseif ($uri == '/sugerencias') { 
-    //     mostrarSugerencias();
-    // }
+    elseif ($uri == '/filtrar') {
+        if (isset($_POST["tipoArticulo"]) && isset($_POST["url"])) {
+            filtrarArticulos($_POST["tipoArticulo"]);
+        } 
+    }
     else {
         header("HTTP/1.0 404 Not Found");
         echo '<html><body><h1>Página no encontrada</h1></body></html>';

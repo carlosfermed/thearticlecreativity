@@ -47,7 +47,7 @@
         session_unset(); // Eliminar todas las variables de sesión
         echo "<main style='text-align: center;'>";
         echo "<h3>Has cerrado tu sesión.</h3>";
-        echo "<a href='/' style='color: green'>Inicio</a>";
+        echo "<a href='http://localhost:3000/' style='color: green'>Inicio</a>";
         echo "</main>";
     }
 
@@ -104,7 +104,7 @@
 
     }
 
-    function procesarFormularioUsuario() {          // pendiente
+    function procesarFormularioUsuario() {        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["usuario"]) && 
                 isset($_POST["contrasenia"]) &&
@@ -130,7 +130,22 @@
     }
 
     function filtrarArticulos($tipo) {
-        include 'views/index.php';
+
+        $url = $_POST["url"];
+
+        if ($url == 'sesion') {
+            include 'views/sesion.php';
+        }
+        else
+            include 'views/index.php';
+        
+
+        // echo $_POST["tipoArticulo"] . "  vv  ". $_SERVER['PHP_SELF'] . "hell";
+        // include 'views/sesion.php';
+        // if (isset($_SESSION["usuario"])) {
+        //     echo "Hello world";
+        // }
+        // include 'views/index.php';
     }
 
 ?>
