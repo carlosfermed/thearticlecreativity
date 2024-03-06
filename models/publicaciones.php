@@ -51,6 +51,22 @@
             }
         }
 
+        public function listarArticulosFiltrados($tipo) {
+            $con = $this->realizarConexion();
+
+            try {
+                $resultado = $con->query("SELECT * FROM articulos WHERE tipo = '$tipo'");
+                if ($resultado) {
+                    return $resultado;
+                } 
+                else {
+                    throw new Exception("Se produjo un error al ejecutar la consulta: " . $con->error);
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+
         // Artículo individual
         public function getArticulo($id) {
             $con = $this->realizarConexion();
@@ -116,8 +132,6 @@
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
             }
-
-
         }
 
     }

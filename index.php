@@ -11,7 +11,16 @@
     // echo $_SERVER["REQUEST_URI"];
     
     if ($uri == '/') {
-        mostrarIndexPrincipal();
+        if (isset($_POST["tipoArticulo"])) {
+            if ($_POST["tipoArticulo"] != "todos"){
+                filtrarArticulos($_POST["tipoArticulo"]);
+            }
+            else {
+                mostrarIndexPrincipal();
+            }
+        }
+        else
+            mostrarIndexPrincipal();
     } 
     elseif ($uri == '/login') {
         formularioLogin();
@@ -47,6 +56,9 @@
     elseif ($uri == '/formulariousuario') { 
         procesarFormularioUsuario();
     } 
+    // elseif ($uri == '/sugerencias') { 
+    //     mostrarSugerencias();
+    // }
     else {
         header("HTTP/1.0 404 Not Found");
         echo '<html><body><h1>Página no encontrada</h1></body></html>';

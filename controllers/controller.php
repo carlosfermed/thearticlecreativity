@@ -129,4 +129,8 @@
         }        
     }
 
+    function filtrarArticulos($tipo) {
+        include 'views/index.php';
+    }
+
 ?>
