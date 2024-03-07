@@ -70,7 +70,7 @@ que se muestren los artículos -->
         <option value="cine">Cine</option>
         <option value="sucesos">Sucesos</option>
     </select>
-    <input type="text" value="<?= $miVariable ?>" name="url" hidden>
+    <input type="text" value="<?= $redireccionamiento ?>" name="url" hidden>
     <input type="submit" value="Filtrar" class="boton"/>
 </form>
 
