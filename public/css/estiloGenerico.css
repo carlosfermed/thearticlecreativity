@@ -9,7 +9,7 @@ body {
     background-repeat: repeat;
     background-size: cover;
 }
-/* importante para mostrar los artículos individuales */
+/* Relevante para mostrar los artículos individuales */
 main {
     display: flex;
     flex-wrap: wrap;
@@ -20,6 +20,32 @@ div {
     width: 400px;
     padding: 10px;
     margin: 20px;
+    background-repeat: no-repeat;
+    background-position: bottom 15px right 30px; 
+}
+
+.alimentacion {
+    background-image: url("../img/alimentacionk.jpg");
+}
+
+.deporte {
+    background-image: url("../img/deportek.jpg");
+}
+
+.ciencia {
+    background-image: url("../img/cienciak.jpg");
+}
+
+.tecnologia {
+    background-image: url("../img/tecnologiak.jpg");
+}
+
+.cine {
+    background-image: url("../img/cinek.jpg");
+}
+
+.sucesos {
+    background-image: url("../img/sucesosk2.jpg");
 }
 /* ___________________________________________________ */
 
