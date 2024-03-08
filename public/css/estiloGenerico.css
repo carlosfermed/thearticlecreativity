@@ -60,6 +60,43 @@ header {
     color: #ddd;            
 }
 
+.accion {
+    animation: 0.5s movimiento forwards ease-in-out;
+}
+
+.cambiarTamanio {
+    animation: cambiotamanio 1.5s forwards;
+}
+
+@keyframes cambiotamanio {
+    60% { font-size: 20px;}
+
+    65% { opacity: 0; }
+
+    100% { color: rgb(232, 248, 3);}
+    
+}
+
+/* @keyframes cambiodecolor {
+    20% { color: black; }
+    40% { color: yellow; }
+    50% { color: green; }
+    68% { color: blue }
+    83% { color: grey; }
+    100% { color: white; }
+} */
+
+@keyframes movimiento {
+    40% {
+        position: relative;
+        top: 0px;
+    }
+    100% {
+        position: relative;
+        top: -15px;
+    }
+}
+
 nav {
     display: flex;
     justify-content: center;

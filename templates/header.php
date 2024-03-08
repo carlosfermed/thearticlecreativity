@@ -14,10 +14,10 @@
 </head>
 <body>
     <header>        
-        <h1>- The ARTiCLE CREATiViTY -</h1>
+        <h1>- <span class="titulo"><span class="letraT">T</span>he AR<span class="letraT">T</span><span class="letrai">i</span>CLE CREA<span class="letraT">T</span><span class="letrai">i</span>V<span class="letrai">i</span><span class="letraT">T</span>Y</span> -</h1>
     </header>
     <nav>
-        <a href="/">Inicio</a>
-        <a href="/login">Login</a>
-        <a href="/registro">Registro</a>
+        <a href="/" class="movimientoi">Inicio</a>
+        <a href="/login" class="movimientoT">Login</a>
+        <a href="/registro" class="cambioTamanio">Registro</a>
     </nav>
