@@ -7,11 +7,11 @@
     
     const movimientoi = document.querySelector(".movimientoi");
     const movimientoT = document.querySelector(".movimientoT");
-    const selectorCambioColor = document.querySelector(".cambioTamanio");
+    const selectorCambioTamanio = document.querySelector(".cambioTamanio");
 
     const letrasi = document.querySelectorAll(".letrai");
     const letrasT = document.querySelectorAll(".letraT");
-    const titulo = document.querySelector(".titulo");
+    const letrasTitulo = document.querySelectorAll(".espacio");
 
     movimientoi.addEventListener("mouseover", () => {
         letrasi.forEach(letra => letra.classList.add("accion"));
@@ -29,12 +29,13 @@
         letrasT.forEach(letra => letra.classList.remove("accion"));
     });
 
-    selectorCambioColor.addEventListener("mouseover", () => {
-        titulo.classList.add("cambiarTamanio");
+    selectorCambioTamanio.addEventListener("mouseover", () => {
+        console.log("entra");
+        letrasTitulo.forEach(letra => letra.classList.add("cambiarTamanio")); 
     });
 
-    selectorCambioColor.addEventListener("mouseout", () => {
-        titulo.classList.remove("cambiarTamanio");
+    selectorCambioTamanio.addEventListener("mouseout", () => {
+        letrasTitulo.forEach(letra => letra.classList.remove("cambiarTamanio"));
     });
 
 

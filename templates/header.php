@@ -14,7 +14,9 @@
 </head>
 <body>
     <header>        
-        <h1>- <span class="titulo"><span class="letraT">T</span>he AR<span class="letraT">T</span><span class="letrai">i</span>CLE CREA<span class="letraT">T</span><span class="letrai">i</span>V<span class="letrai">i</span><span class="letraT">T</span>Y</span> -</h1>
+        <h1>- <span class="titulo"><span class="letraT espacio">T</span><span class="espacio">h</span><span class="espacio">e</span>
+        <span class="espacio">A</span><span class="espacio">R</span><span class="letraT espacio">T</span><span class="letrai espacio">i</span><span class="espacio">C</span><span class="espacio">L</span><span class="espacio">E</span>
+        <span class="espacio">C</span><span class="espacio">R</span><span class="espacio">E</span><span class="espacio">A</span><span class="letraT espacio">T</span><span class="letrai espacio">i</span><span class="espacio">V</span><span class="letrai espacio">i</span><span class="letraT espacio">T</span><span class="espacio">Y</span></span> -</h1>
     </header>
     <nav>
         <a href="/" class="movimientoi">Inicio</a>
