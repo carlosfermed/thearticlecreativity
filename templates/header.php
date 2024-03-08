@@ -15,7 +15,6 @@
 <body>
     <header>        
         <h1>- The ARTiCLE CREATiViTY -</h1>
-        <h5 id="usuario"></h5>
     </header>
     <nav>
         <a href="/">Inicio</a>

@@ -73,7 +73,6 @@
             //implementar else que controle los tipos de datos recogidos
 
         }
-        // mostrar aviso que indique que no se ha enviado el formulario (opcional)
     }
 
     function mostrarArticuloIndividual($id) {
@@ -95,13 +94,12 @@
         if ($resultado) {
             echo "<main style='text-align: center;'>";                
             echo "<h3>Artículo Eliminado.</h3>";
-            echo "<a href='/' style='color: green;margin: auto;'>Continuar</a>";
+            echo "<a href='/sesion' style='color: green;margin: auto;'>Continuar</a>";
             echo "</main>";
         }
         else {
             echo "<h3><span style='color: red'>No se pudo eliminar el artículo.</span></h3>";
         }
-
     }
 
     function procesarFormularioUsuario() {        
@@ -124,7 +122,6 @@
                 echo "<h3>Usuario creado con éxito, ya puedes acceder mediante Login a tu cuenta.</h3>";
                 echo "<a href='/' style='color: green;margin: auto;'>Continuar</a>";
                 echo "</main>";
-
             }
         }        
     }
@@ -138,14 +135,6 @@
         }
         else
             include 'views/index.php';
-        
-
-        // echo $_POST["tipoArticulo"] . "  vv  ". $_SERVER['PHP_SELF'] . "hell";
-        // include 'views/sesion.php';
-        // if (isset($_SESSION["usuario"])) {
-        //     echo "Hello world";
-        // }
-        // include 'views/index.php';
     }
 
 ?>
