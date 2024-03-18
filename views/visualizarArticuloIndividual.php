@@ -17,7 +17,7 @@
     <body>
         <header>        
             <h1>- The ARTiCLE CREATiViTY -</h1>
-            <h4 id="contenidoHeader">Contenido del artículo</h4>
+            <input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>
         </header>
         <?php 
             // Crear todo el contenido que mostrará los artículos de forma individual.
@@ -28,7 +28,7 @@
             echo "<span>Creador: </span><h4>" . $articuloIndividual->usuarioCreador . "</h4>";
             echo "</div><br>";
 
-            echo "<input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>";
+            // echo "<input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>";
             if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] == "$articuloIndividual->usuarioCreador") {
                 echo "<form action='eliminar' method='post'>";
                 echo "<input type='text' value='" . $articuloIndividual->id . "' name='idEliminar' hidden>";
