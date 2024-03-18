@@ -18,12 +18,14 @@
 </head>
 <body>
     <header>        
-        <h1>- The ARTiCLE CREATiViTY -</h1>
+        <h1>- <span class="titulo cambioTamanio"><span class="letraT espacio">T</span><span class="espacio">h</span><span class="espacio">e</span>
+        <span class="espacio">A</span><span class="espacio">R</span><span class="letraT espacio">T</span><span class="letrai espacio">i</span><span class="espacio">C</span><span class="espacio">L</span><span class="espacio">E</span>
+        <span class="espacio">C</span><span class="espacio">R</span><span class="espacio">E</span><span class="espacio">A</span><span class="letraT espacio">T</span><span class="letrai espacio">i</span><span class="espacio">V</span><span class="letrai espacio">i</span><span class="letraT espacio">T</span><span class="espacio">Y</span></span> -</h1>
         <h4 id="usuario" style="color: orange;"><?= $_SESSION["usuario"] ?></h4>
     </header>
     <nav>
-        <a href="/finalizarsesion">Cerrar Sesión</a>
-        <a class="bordeNaranja" href="/articulo">Introducir Artículo</a>         
+        <a href="/finalizarsesion" class="movimientoT">Cerrar Sesión</a>
+        <a class="bordeNaranja movimientoi" href="/articulo">Introducir Artículo</a>         
     </nav>
 <?php include 'components/visualizarArticulos.php'; ?>  
 
