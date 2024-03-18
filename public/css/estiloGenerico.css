@@ -8,7 +8,7 @@ body {
     background-image: url("../img/newspaperbg.jpg");
     background-repeat: repeat;
     background-size: cover;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 /* Relevante para mostrar los artículos individuales */
 main {
@@ -150,6 +150,16 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #555;
 }
+
+/* style="position: fixed; top: 88%; left: 50%; transform: translate(-50%,-30%)" */
+#formularioBusqueda {
+    position: fixed;
+    width: 120px;
+    top: 85%;
+    right: 2%;
+    /* transform: translate(-50%,-50%); */
+}
+
 
 footer {
     background-color: #666;

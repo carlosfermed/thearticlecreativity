@@ -42,11 +42,10 @@ que se muestren los artículos -->
     ?>
 </main>
 
-<form action='filtrar' method='post' style="position: fixed; top: 88%; left: 50%; transform: translate(-50%,-50%)" >
-    Temática 
+<form action='filtrar' method='post' id="formularioBusqueda" >
+    <span style="text-align: center;"><b>Buscador</b></span>
     <select name="tipoArticulo">
         <option value="todas">Todas</option>
-
         <option value="alimentacion">Alimentación</option>
         <option value="deporte">Deporte</option>
         <option value="ciencia">Ciencia</option>

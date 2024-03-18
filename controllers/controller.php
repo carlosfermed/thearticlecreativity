@@ -63,10 +63,6 @@
         include 'views/introducirArticulo.php';
     }
 
-    // function procesarFormularioArticuloEditado($id) {       // Introducir información del artículo editado
-
-    // }
-
     function procesarFormularioArticulo($id=false) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["titulo"]) && isset($_POST["contenido"]) && isset($_POST["tipoArticulo"]) &&  isset($_POST["nombreUsuario"])) {
@@ -74,6 +70,7 @@
                 
                 $publicacion = new conexionPublicaciones();
 
+                // Procesar cuando el formulario es editado.
                 if ($id) {
                     $publicacion->introducirArticuloEditado($_POST["titulo"], $_POST["contenido"], $_POST["tipoArticulo"], $_POST["nombreUsuario"], $id);
                     echo "<main style='text-align: center;'>";
@@ -81,6 +78,7 @@
                     echo "<a href='sesion' style='color: green'>Continuar</a>";
                     echo "</main>";
                 }
+                // Procesar de forma normal.
                 else {
                     $publicacion->introducirArticulo($_POST["titulo"], $_POST["contenido"], $_POST["tipoArticulo"], $_POST["nombreUsuario"]);                
                     echo "<main style='text-align: center;'>";
@@ -106,16 +104,6 @@
         if ($edit) include 'views/editarArticuloIndividual.php';
         else include 'views/visualizarArticuloIndividual.php';
     }
-
-    // function editarArticulo($id) {                  // Recuperar información sobre el artículo a editar
-    //     include "models/publicaciones.php";
-
-    //     $publicacion = new conexionPublicaciones();
-    //     $resultado = $publicacion->editarArticulo($id);
-    //     $articuloIndividual = $resultado->fetch_object();
-
-    //     include 'views/editarArticuloIndividual.php';
-    // }
 
     function eliminarArticulo($id) {
         include "models/publicaciones.php";
@@ -165,8 +153,7 @@
         if ($url == 'sesion') {
             include 'views/sesion.php';
         }
-        else
-            include 'views/index.php';
+        else include 'views/index.php';
     }
 
 ?>

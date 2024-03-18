@@ -45,11 +45,6 @@
             mostrarArticuloIndividual($_POST["idEditar"], true);
         }
     }
-    // elseif ($uri == '/editar') {                // Falta por implementar
-    //     if (isset($_POST["idEditar"])) {
-    //         mostrarArticuloIndividual($_POST["idEditar"], true);
-    //     }
-    // } 
     elseif ($uri == '/eliminar') {
         if (isset($_POST["idEliminar"])) {
             eliminarArticulo($_POST["idEliminar"]);
