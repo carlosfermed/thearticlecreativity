@@ -29,7 +29,7 @@
             echo "</div><br>";
 
             echo "<input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>";
-            if ($_SESSION["usuario"] == "$articuloIndividual->usuarioCreador") {
+            if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] == "$articuloIndividual->usuarioCreador") {
                 echo "<form action='eliminar' method='post'>";
                 echo "<input type='text' value='" . $articuloIndividual->id . "' name='idEliminar' hidden>";
                 echo "<input type='submit' value='Eliminar Artículo' id='botonEliminarArticulo' title='Precaución esta acción elimina el artículo definitivamente'>";
