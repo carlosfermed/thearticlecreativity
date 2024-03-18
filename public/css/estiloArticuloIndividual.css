@@ -1,3 +1,5 @@
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
 body {
     font-family: Calibri, Arial, sans-serif;
     margin: 0;
@@ -12,28 +14,45 @@ body {
 div {
     display: block;
     margin: auto;
-    border: 2px solid grey;
-    border-radius: 10%;
+    border: 1px solid black;
+    border-radius: 2%;
     width: 400px;
     padding: 40px;
     background: linear-gradient(rgb(236,212,192), rgb(161,131,107));
+    box-shadow: 10px 10px 2px 1px rgba(0, 0, 0, 0.2);
+    mix-blend-mode: hard-light;         
+
 }
 
 header {
-    background-color: #666;
+    background-color: #555;
     padding: 2px;
     text-align: center;
     color: #ddd; 
     font-family: Script Normal;
+    mix-blend-mode: darken;
+}
+
+h2 {
+    font-family: 'Roboto';
+    color:rgba(0, 0, 0, 0.9);
+}
+
+#contenidoHeader {
+    font-family: 'Roboto';
+    font-weight: 100;
+    color: rgb(226, 199, 199);
+    text-decoration: underline;
+
 }
 
 #contenidoH4 {
     text-align: left;
 }        
 
-#etiquetaContenido {
+/* #etiquetaContenido {
     text-decoration: underline;
-}
+} */
 
 #derechos {
     font-size: 11px;
@@ -43,22 +62,22 @@ header {
     color: lightcyan;
     background: rgb(51,51,51);
     padding: 8px;
-    margin: 4px;
+    margin: 10px;
     border-radius: 4px;
     width: 300px;
-    transition: 1s ease-out;
-
+    /* transition: 1s ease-out; */
 }
 
 #botonVolverAtras:hover {
     background: rgb(85,85,85);
+    cursor: pointer;
 }
 
 #botonEliminarArticulo {
     color: rgb(247, 143, 143);
     background: rgb(51,51,51);
     padding: 8px;
-    margin: 15px;
+    margin: 10px;
     width: 150px;
     border-radius: 4px;
     transition: 1.2s cubic-bezier(0.65, 0.73, 0.04, 1.13);    
@@ -67,6 +86,7 @@ header {
 #botonEliminarArticulo:hover {
     color: lightcyan;
     background: rgb(248, 5, 5);
+    cursor: pointer;
 }
 
 footer {

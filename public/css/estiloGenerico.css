@@ -23,10 +23,11 @@ div {
     margin: 20px;
     background-repeat: no-repeat;
     background-position: bottom 10px right 20px; 
+    box-shadow: 10px 10px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .alimentacion {
-    background-image: url("../img/alimentacionk.jpg");
+    background-image: url("../img/alimentacionk2.jpg");
 }
 
 .deporte {
@@ -34,7 +35,7 @@ div {
 }
 
 .ciencia {
-    background-image: url("../img/cienciak.jpg");
+    background-image: url("../img/cienciak2.jpg");
 }
 
 .tecnologia {
@@ -46,7 +47,7 @@ div {
 }
 
 .sucesos {
-    background-image: url("../img/sucesosk2.jpg");
+    background-image: url("../img/sucesosk3.jpg");
 }
 /* ___________________________________________________ */
 
@@ -55,10 +56,11 @@ h1 {
 }
 
 header {
-    background-color: #666;
+    background-color: #555;
     padding: 2px;
     text-align: center;
-    color: #ddd;            
+    color: #ddd; 
+    mix-blend-mode: darken;         
 }
 
 .accion {

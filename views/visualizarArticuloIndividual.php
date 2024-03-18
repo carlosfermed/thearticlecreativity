@@ -17,11 +17,11 @@
     <body>
         <header>        
             <h1>- The ARTiCLE CREATiViTY -</h1>
-            <h4>Contenido del artículo</h4>
+            <h4 id="contenidoHeader">Contenido del artículo</h4>
         </header>
         <?php 
             // Crear todo el contenido que mostrará los artículos de forma individual.
-            echo "<h2>" . $articuloIndividual->titulo . "</h2><br><hr><br>";
+            echo "<h2>" . $articuloIndividual->titulo . "</h2><hr><br>";
             echo "<div class='tarjeta'>";
             echo "<span id='etiquetaContenido'>Descripción:<br></span><h4 id='contenidoH4'>" . $articuloIndividual->contenido . "</h4><br><br>";
             echo "<span>Fecha: </span><h4>" . $articuloIndividual->fecha . "</h4>";
