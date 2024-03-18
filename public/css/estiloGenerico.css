@@ -52,7 +52,7 @@ div {
 }
 /* ___________________________________________________ */
 
-h1 {
+h1, header {
     font-family: Script Normal;
 }
 
@@ -61,7 +61,7 @@ header {
     padding: 2px;
     text-align: center;
     color: #ddd; 
-    mix-blend-mode: darken;         
+    mix-blend-mode: darken; 
 }
 
 .accion {

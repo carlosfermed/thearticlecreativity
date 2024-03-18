@@ -17,8 +17,14 @@
     <body>
         <header>        
             <h1>- The ARTiCLE CREATiViTY -</h1>
-            <input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>
+            <h4 id="usuario" style="color: orange;"><?= isset($_SESSION["usuario"]) ? $_SESSION["usuario"] : "" ?></h4>
+            <!-- <input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'> -->
         </header>
+        <nav>
+            <a href=<?= isset($_SESSION["usuario"]) ? "/sesion" : "/" ?> class="movimientoi bordeNaranja">Volver 🢨</a>
+            <!-- <a href="/login" class="movimientoT">Login</a>
+            <a href="/registro" class="cambioTamanio">Registro</a> -->
+        </nav>
         <?php 
             // Crear todo el contenido que mostrará los artículos de forma individual.
             echo "<h2>" . $articuloIndividual->titulo . "</h2><hr><br>";
@@ -30,11 +36,9 @@
 
             // echo "<input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>";
             if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] == "$articuloIndividual->usuarioCreador") {
-                print_r($_SESSION["usuario"]);
-                print_r($articuloIndividual->usuarioCreador);
                 echo "<form action='mostrarArticuloIndividual' method='post'>";
                 echo "<input type='text' value='" . $articuloIndividual->id . "' name='idEditar' hidden>";
-                echo "<input type='submit' value='Editar' id='botonEliminarArticulo'>";
+                echo "<input type='submit' value='Editar' id='botonEditarArticulo'>";
                 echo "</form>";
                 echo "<form action='eliminar' method='post'>";
                 echo "<input type='text' value='" . $articuloIndividual->id . "' name='idEliminar' hidden>";
