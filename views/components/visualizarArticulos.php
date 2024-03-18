@@ -19,9 +19,9 @@ que se muestren los artículos -->
             }
             if ($articulos != null) {
                 foreach($articulos as $articulo) {
-                    echo "<div class='". $articulo->tipo ."'> Título: <a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>" 
-                        . $articulo->titulo . " </a><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
-                        . "<br>Creador: " . $articulo->usuarioCreador . "</div><br><br>";
+                    echo "<div class='". $articulo->tipo ."'><a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>Título: <span style='font-weight: bold; color: blue;'>" 
+                    . $articulo->titulo . "</span><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
+                    . "<br>Creador: " . $articulo->usuarioCreador . "</div></a>";
                 }
             }
             else
@@ -34,9 +34,12 @@ que se muestren los artículos -->
                 $articulos[] = $row;
             }
             foreach($articulos as $articulo) {
-                echo "<div class='". $articulo->tipo ."'> Título: <a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>" 
-                    . $articulo->titulo . " </a><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
-                    . "<br>Creador: " . $articulo->usuarioCreador . "</div><br><br>";
+                echo "<div class='". $articulo->tipo ."'><a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>Título: <span style='font-weight: bold; color: blue;'>" 
+                    . $articulo->titulo . "</span><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
+                    . "<br>Creador: " . $articulo->usuarioCreador . "</div></a>";
+                // echo "<div class='". $articulo->tipo ."'> Título: <a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>" 
+                //     . $articulo->titulo . " </a><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
+                //     . "<br>Creador: " . $articulo->usuarioCreador . "</div><br><br>";
             }
         }
     ?>
