@@ -1,5 +1,12 @@
 
 <?php
+
+    session_start();
+
+    if (!defined('CON_CONTROLADOR')) {
+        echo "Acceso denegado. No se puede solicitar este archivo directamente.";
+        die();
+    }
     
     function mostrarIndexPrincipal() {
         include 'views/index.php';
@@ -44,7 +51,8 @@
     }
 
     function finalizarSesion() {
-        session_unset(); // Eliminar todas las variables de sesión
+        session_unset();    // Elimina todas las variables de sesión.
+        session_destroy();  // Destruye completamente la sesión.
         echo "<main style='text-align: center;'>";
         echo "<h3>Has cerrado tu sesión.</h3>";
         echo "<a href='http://localhost:3000/' style='color: green'>Inicio</a>";
@@ -55,19 +63,32 @@
         include 'views/introducirArticulo.php';
     }
 
-    function procesarFormularioArticulo() {
+    // function procesarFormularioArticuloEditado($id) {       // Introducir información del artículo editado
+
+    // }
+
+    function procesarFormularioArticulo($id=false) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["titulo"]) && isset($_POST["contenido"]) && isset($_POST["tipoArticulo"]) &&  isset($_POST["nombreUsuario"])) {
                 include "models/publicaciones.php";
-
+                
                 $publicacion = new conexionPublicaciones();
 
-                $publicacion->introducirArticulo($_POST["titulo"], $_POST["contenido"], $_POST["tipoArticulo"], $_POST["nombreUsuario"]);
+                if ($id) {
+                    $publicacion->introducirArticuloEditado($_POST["titulo"], $_POST["contenido"], $_POST["tipoArticulo"], $_POST["nombreUsuario"], $id);
+                    echo "<main style='text-align: center;'>";
+                    echo "<h3>Artículo editado con éxito.</h3>";
+                    echo "<a href='sesion' style='color: green'>Continuar</a>";
+                    echo "</main>";
+                }
+                else {
+                    $publicacion->introducirArticulo($_POST["titulo"], $_POST["contenido"], $_POST["tipoArticulo"], $_POST["nombreUsuario"]);                
+                    echo "<main style='text-align: center;'>";
+                    echo "<h3>Artículo creado con éxito.</h3>";
+                    echo "<a href='sesion' style='color: green'>Continuar</a>";
+                    echo "</main>";
+                }
                 
-                echo "<main style='text-align: center;'>";
-                echo "<h3>Artículo creado con éxito.</h3>";
-                echo "<a href='sesion' style='color: green'>Continuar</a>";
-                echo "</main>";
             }
 
             //implementar else que controle los tipos de datos recogidos
@@ -75,15 +96,26 @@
         }
     }
 
-    function mostrarArticuloIndividual($id) {
+    function mostrarArticuloIndividual($id, $edit = false) {
         include "models/publicaciones.php";
 
         $publicacion = new conexionPublicaciones();
         $resultado = $publicacion->getArticulo($id);
         $articuloIndividual = $resultado->fetch_object();
 
-        include 'views/visualizarArticuloIndividual.php';
+        if ($edit) include 'views/editarArticuloIndividual.php';
+        else include 'views/visualizarArticuloIndividual.php';
     }
+
+    // function editarArticulo($id) {                  // Recuperar información sobre el artículo a editar
+    //     include "models/publicaciones.php";
+
+    //     $publicacion = new conexionPublicaciones();
+    //     $resultado = $publicacion->editarArticulo($id);
+    //     $articuloIndividual = $resultado->fetch_object();
+
+    //     include 'views/editarArticuloIndividual.php';
+    // }
 
     function eliminarArticulo($id) {
         include "models/publicaciones.php";

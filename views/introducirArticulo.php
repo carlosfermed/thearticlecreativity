@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();             // COMENTADO TRAS LA ÚLTIMA VERSIÓN
 
     if (!defined('CON_CONTROLADOR')) {
         echo "Acceso denegado. No se puede solicitar este archivo directamente.";
@@ -25,7 +25,7 @@
     <form action="formulario" method="post" >
         Título <input type="text" name="titulo" required/>
         <br>        
-        <textarea type="text" rows="15" name="contenido" placeholder="Este artículo trata sobre..." required/></textarea>
+        <textarea type="text" rows="15" name="contenido" placeholder="Este artículo trata sobre..." required></textarea>
         <br>
         Temática 
         <select name="tipoArticulo">

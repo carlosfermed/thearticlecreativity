@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+    // session_start();             // COMENTADO TRAS LA ÚLTIMA VERSIÓN
 
     if (!defined('CON_CONTROLADOR')) {
         echo "Acceso denegado. No se puede solicitar este archivo directamente.";
@@ -30,9 +30,15 @@
 
             // echo "<input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>";
             if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] == "$articuloIndividual->usuarioCreador") {
+                print_r($_SESSION["usuario"]);
+                print_r($articuloIndividual->usuarioCreador);
+                echo "<form action='mostrarArticuloIndividual' method='post'>";
+                echo "<input type='text' value='" . $articuloIndividual->id . "' name='idEditar' hidden>";
+                echo "<input type='submit' value='Editar' id='botonEliminarArticulo'>";
+                echo "</form>";
                 echo "<form action='eliminar' method='post'>";
                 echo "<input type='text' value='" . $articuloIndividual->id . "' name='idEliminar' hidden>";
-                echo "<input type='submit' value='Eliminar Artículo' id='botonEliminarArticulo' title='Precaución esta acción elimina el artículo definitivamente'>";
+                echo "<input type='submit' value='Eliminar' id='botonEliminarArticulo' title='Precaución esta acción elimina el artículo definitivamente'>";
                 echo "</form>";
             }                
         ?>

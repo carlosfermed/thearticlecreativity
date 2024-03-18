@@ -9,7 +9,6 @@
     include 'controllers/controller.php';  
 
     $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-    // echo $_SERVER["REQUEST_URI"];
     
     if ($uri == '/') {
         mostrarIndexPrincipal();
@@ -33,13 +32,24 @@
         introducirArticulo();
     } 
     elseif ($uri == '/formulario') {  
-        procesarFormularioArticulo();
+        if (isset($_POST["idEditar"])) {
+            procesarFormularioArticulo($_POST["idEditar"]);
+        } 
+        else procesarFormularioArticulo();
     } 
     elseif ($uri == '/mostrarArticuloIndividual') {
         if (isset($_GET["id"])) {
             mostrarArticuloIndividual($_GET["id"]);
         }
+        elseif (isset($_POST["idEditar"])) {
+            mostrarArticuloIndividual($_POST["idEditar"], true);
+        }
     }
+    // elseif ($uri == '/editar') {                // Falta por implementar
+    //     if (isset($_POST["idEditar"])) {
+    //         mostrarArticuloIndividual($_POST["idEditar"], true);
+    //     }
+    // } 
     elseif ($uri == '/eliminar') {
         if (isset($_POST["idEliminar"])) {
             eliminarArticulo($_POST["idEliminar"]);

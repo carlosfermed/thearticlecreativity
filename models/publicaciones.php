@@ -34,6 +34,24 @@
             }
         }
 
+        public function introducirArticuloEditado($titulo, $contenido, $tipo, $usuario, $id) {
+            $con = $this->realizarConexion();
+            $fecha = date('Y-m-d');
+            $query = "UPDATE articulos SET titulo='$titulo', contenido='$contenido', tipo='$tipo', fecha='$fecha', usuarioCreador='$usuario' WHERE id=$id;";
+
+            try {
+                $resultado = $con->query($query);
+                if ($resultado) {
+                    return $resultado;
+                } 
+                else {
+                    throw new Exception("Fallo al ejecutar la consulta: " . $con->error);
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+        }
+
         // Todos los artículos
         public function listarArticulos() {
             $con = $this->realizarConexion();
@@ -82,6 +100,24 @@
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
             }
+        }
+
+        //Editar artículo
+        public function editarArticulo($id) {       // Falta por completar
+            $con = $this->realizarConexion();
+
+            try {
+                $resultado = $con->query("SELECT * FROM articulos WHERE id = $id");
+                if ($resultado) {
+                    return $resultado;
+                } 
+                else {
+                    throw new Exception("Se produjo un error al ejecutar la consulta: " . $con->error);
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+            }
+
         }
 
         // Eliminar artículo
