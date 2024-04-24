@@ -18,6 +18,7 @@
 </head>
 <body>
     <header>        
+        <!-- Título interactivo -->
         <h1>- <span class="titulo cambioTamanio"><span class="letraT espacio">T</span><span class="espacio">h</span><span class="espacio">e</span>
         <span class="espacio">A</span><span class="espacio">R</span><span class="letraT espacio">T</span><span class="letrai espacio">i</span><span class="espacio">C</span><span class="espacio">L</span><span class="espacio">E</span>
         <span class="espacio">C</span><span class="espacio">R</span><span class="espacio">E</span><span class="espacio">A</span><span class="letraT espacio">T</span><span class="letrai espacio">i</span><span class="espacio">V</span><span class="letrai espacio">i</span><span class="letraT espacio">T</span><span class="espacio">Y</span></span> -</h1>

@@ -8,14 +8,23 @@
         die();
     }
     
+    /**
+     * Muestra la página principal del sitio web.
+     */
     function mostrarIndexPrincipal() {
         include 'views/index.php';
     }
 
+    /**
+     * Muestra la página de login del sitio web.
+     */
     function formularioLogin() {
         include 'views/login.php';
     }
 
+    /**
+     * Verifica el usuario que se está iniciando sesión.
+     */
     function verificarLogin() {
         session_start();
 
@@ -42,14 +51,23 @@
         }
     }
 
+    /**
+     * Muestra el formulario de registro de nuevos usuarios.
+     */
     function formularioRegistro() {
         include 'views/registro.php';
     }
 
+    /**
+     * Muestra el formulario de registro de nuevos usuarios.
+     */
     function mostrarSesion() {
         include 'views/sesion.php';
     }
 
+    /**
+     * Finaliza la sesión de usuario.
+     */
     function finalizarSesion() {
         session_unset();    // Elimina todas las variables de sesión.
         session_destroy();  // Destruye completamente la sesión.
@@ -59,10 +77,16 @@
         echo "</main>";
     }
 
+    /**
+     * Muestra el formulario de creación de artículos.
+     */
     function introducirArticulo() {
         include 'views/introducirArticulo.php';
     }
 
+    /**
+     * Envía los datos del artículo creado o editado al modelo.
+     */
     function procesarFormularioArticulo($id=false) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["titulo"]) && isset($_POST["contenido"]) && isset($_POST["tipoArticulo"]) &&  isset($_POST["nombreUsuario"])) {
@@ -86,14 +110,13 @@
                     echo "<a href='sesion' style='color: green'>Continuar</a>";
                     echo "</main>";
                 }
-                
             }
-
-            //implementar else que controle los tipos de datos recogidos
-
         }
     }
 
+    /**
+     * Muestra el artículo de forma individual según ofrezca opción para editarse o no.
+     */
     function mostrarArticuloIndividual($id, $edit = false) {
         include "models/publicaciones.php";
 
@@ -105,6 +128,9 @@
         else include 'views/visualizarArticuloIndividual.php';
     }
 
+    /**
+     * Envía los datos del artículo a eliminar al modelo.
+     */
     function eliminarArticulo($id) {
         include "models/publicaciones.php";
 
@@ -122,6 +148,9 @@
         }
     }
 
+    /**
+     * Envía los datos del nuevo usuario al modelo.
+     */
     function procesarFormularioUsuario() {        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["usuario"]) && 
@@ -146,8 +175,10 @@
         }        
     }
 
+    /**
+     * Muestra los artículos filtrados por tipo.
+     */
     function filtrarArticulos($tipo) {
-
         $url = $_POST["url"];
 
         if ($url == 'sesion') {

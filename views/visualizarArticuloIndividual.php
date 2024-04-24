@@ -31,7 +31,7 @@
             echo "<span>Creador: </span><h4>" . $articuloIndividual->usuarioCreador . "</h4>";
             echo "</div><br>";
 
-            // echo "<input type='button' value='Volver atrás' id='botonVolverAtras' onclick='window.history.back();'>";
+            // Si el usuario ha iniciado sesión y el artículo fue creado por él.
             if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] == "$articuloIndividual->usuarioCreador") {
                 echo "<form action='mostrarArticuloIndividual' method='post'>";
                 echo "<input type='text' value='" . $articuloIndividual->id . "' name='idEditar' hidden>";

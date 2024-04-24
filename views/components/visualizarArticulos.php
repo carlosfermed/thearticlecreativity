@@ -39,16 +39,13 @@ que se muestren los artículos -->
                 echo "<div class='". $articulo->tipo ."'><a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>Título: <span style='font-weight: bold; color: blue;'>" 
                     . $articulo->titulo . "</span><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
                     . "<br>Creador: " . $articulo->usuarioCreador . "</div></a>";
-                // echo "<div class='". $articulo->tipo ."'> Título: <a class='enlace' href='/mostrarArticuloIndividual?id=" . $articulo->id . "'>" 
-                //     . $articulo->titulo . " </a><br>Temática: " . $articulo->tipo . "<br>Fecha:  " . $articulo->fecha 
-                //     . "<br>Creador: " . $articulo->usuarioCreador . "</div><br><br>";
             }
         }
     ?>
 </main>
 
 <input type="button" value="Reportar incidencia" id="mensajeIncidencia" 
-    onclick="alert(`En caso de incidencia, contacte con el administrador enviando un email a: 
+    onclick="alert(`En caso de incidencia, contacte con el administrador enviando un email a la siguiente dirección: 
                     incidencias@creativity.com`)" 
 />
 

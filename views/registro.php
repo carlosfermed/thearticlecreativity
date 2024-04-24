@@ -8,7 +8,7 @@
 ?>
 <?php include 'templates/header.php' ?>
     <main>
-        <form action="formulariousuario" method="post" enctype="multipart/form-data">  <!-- podemos añadir subida de imagen si fuera necesario -->
+        <form action="formulariousuario" method="post" enctype="multipart/form-data">
         Usuario <input type="text" name="usuario" required/>
         <br>
         Contraseña <input type="password" name="contrasenia" required/>
