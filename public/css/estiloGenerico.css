@@ -68,27 +68,6 @@ header {
     animation: 0.5s movimiento forwards ease-in-out;
 }
 
-@keyframes movimiento {
-    40% {
-        position: relative;
-        top: 0px;
-    }
-    100% {
-        position: relative;
-        top: -15px;
-    }
-}
-
-@media screen and (min-width: 850px) {
-    .cambiarTamanio {
-        animation: cambiotamanio 2s forwards;
-    }
-}
-
-@keyframes cambiotamanio {
-    100% { margin: 0 8px;}    
-}
-
 nav {
     display: flex;
     justify-content: center;
@@ -162,9 +141,16 @@ input[type="submit"]:hover {
 #formularioBusqueda {
     position: fixed;
     width: 120px;
-    top: 85%;
+    top: 86%;
     right: 2%;
-    /* transform: translate(-50%,-50%); */
+}
+
+#mensajeIncidencia {
+    position: fixed;
+    width: 150px;
+    top: 90%;
+    left: 2%;
+    color: red;
 }
 
 
@@ -180,4 +166,53 @@ footer {
 
 #derechos {
     font-size: 11px;
+}
+
+@media screen and (min-width: 850px) {
+    .cambiarTamanio {
+        animation: cambiotamanio 2s forwards;
+    }
+}
+
+@keyframes cambiotamanio {
+    100% { margin: 0 8px;}    
+}
+
+@keyframes movimiento {
+    40% {
+        position: relative;
+        top: 0px;
+    }
+    100% {
+        position: relative;
+        top: -15px;
+    }
+}
+/* Reposicionamiento del buscador y botón de incidencias */
+@media screen and (max-height: 860px) {
+    #formularioBusqueda {
+        top: 80%;
+        right: 2%;
+        transition: 1s;
+    }
+    
+    #mensajeIncidencia {
+        top: 85%;
+        left: 2%;
+        transition: 1s;
+    }
+}
+
+@media screen and (min-height: 861px) {
+    #formularioBusqueda {
+        top: 86%;
+        right: 2%;
+        transition: top 1s, right 1s; 
+    }
+    
+    #mensajeIncidencia {
+        top: 90%;
+        left: 2%;
+        transition: top 1s, left 1s; 
+    }
 }

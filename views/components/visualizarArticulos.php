@@ -10,6 +10,7 @@
 que se muestren los artículos -->
 <main>
     <?php 
+        // Filtra los artículos por un tipo determinado.
         if ((isset($tipo)) && ($tipo !== "todas")) {
             $articulos = array();
             $publicaciones = new conexionPublicaciones();
@@ -27,6 +28,7 @@ que se muestren los artículos -->
             else
                 echo "<h4 style='margin-left: 10px;'>No hay resultados</h4>";
         }
+        // Muestra todos los artículos.
         else {
             $publicaciones = new conexionPublicaciones();
             $resultado = $publicaciones->listarArticulos();            
@@ -44,6 +46,11 @@ que se muestren los artículos -->
         }
     ?>
 </main>
+
+<input type="button" value="Reportar incidencia" id="mensajeIncidencia" 
+    onclick="alert(`En caso de incidencia, contacte con el administrador enviando un email a: 
+                    incidencias@creativity.com`)" 
+/>
 
 <form action='filtrar' method='post' id="formularioBusqueda" >
     <span style="text-align: center;"><b>Buscador</b></span>

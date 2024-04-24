@@ -20,7 +20,7 @@
         <h4 id="usuario" style="color: orange;"><?= $_SESSION["usuario"] ?></h4>
     </header>
     <nav>
-        <a href="sesion" class="bordeNaranja" >Volver</a>
+        <a href="sesion" class="bordeNaranja" >Volver 🢨</a>
     </nav>
     <form action="formulario" method="post" >
         Título <input type="text" name="titulo" required/>
