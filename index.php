@@ -1,7 +1,6 @@
 <?php
     /**
      * index.php como controlador frontal.
-     * 
      */
 
     define('CON_CONTROLADOR', true);

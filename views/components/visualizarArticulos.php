@@ -1,4 +1,5 @@
 <?php
+
     if (!defined('CON_CONTROLADOR')) {
         echo "Acceso denegado. No se puede solicitar este archivo directamente.";
         die();
@@ -6,8 +7,6 @@
 
     include "models/publicaciones.php";   
 ?>
-<!-- Este archivo debe ser una especie de Template para introducir en los archivos donde queramos
-que se muestren los artículos -->
 <main>
     <?php 
         // Filtra los artículos por un tipo determinado.

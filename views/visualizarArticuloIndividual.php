@@ -1,5 +1,4 @@
 <?php 
-    // session_start();             // COMENTADO TRAS LA ÚLTIMA VERSIÓN
 
     if (!defined('CON_CONTROLADOR')) {
         echo "Acceso denegado. No se puede solicitar este archivo directamente.";

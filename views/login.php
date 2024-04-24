@@ -1,6 +1,5 @@
 <?php   
     
-    // session_start();  NO NECESARIO
     if (!defined('CON_CONTROLADOR')) {
         echo "Acceso denegado. No se puede solicitar este archivo directamente.";
         die();

@@ -1,5 +1,4 @@
-
-<!-- Vista principal (Landing Page) -->
+<!-- Vista principal (Landing Page index) -->
 
 <?php 
     if (!defined('CON_CONTROLADOR')) {
