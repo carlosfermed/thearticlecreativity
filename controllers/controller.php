@@ -10,20 +10,38 @@
     
     /**
      * Muestra la página principal del sitio web.
+     * 
+     * Este método incluye el archivo 'views/index.php', que contiene la estructura y el contenido
+     * de la página principal del sitio web.
+     * 
+     * @return void No retorna ningún valor. En lugar de ello, muestra la página principal del sitio web.
      */
     function mostrarIndexPrincipal() {
         include 'views/index.php';
     }
 
     /**
-     * Muestra la página de login del sitio web.
+     * Muestra el formulario de inicio de sesión.
+     * 
+     * Este método incluye el archivo 'views/login.php', que contiene la estructura y los campos
+     * necesarios para que los usuarios inicien sesión en el sistema.
+     * 
+     * @return void No retorna ningún valor. En su lugar, muestra el formulario de inicio de sesión.
      */
     function formularioLogin() {
         include 'views/login.php';
     }
 
     /**
-     * Verifica el usuario que se está iniciando sesión.
+     * Verifica las credenciales de inicio de sesión del usuario.
+     * 
+     * Este método se encarga de iniciar sesión para un usuario verificando las credenciales
+     * proporcionadas a través de un formulario de inicio de sesión. Si las credenciales son
+     * válidas, el usuario se autentica y se crea una sesión para él.
+     * 
+     * Si las credenciales son incorrectas, se muestra un mensaje de error.
+     * 
+     * @return void No retorna ningún valor. En su lugar, inicia sesión para el usuario o muestra un mensaje de error.
      */
     function verificarLogin() {
         session_start();
@@ -53,13 +71,23 @@
 
     /**
      * Muestra el formulario de registro de nuevos usuarios.
+     * 
+     * Este método incluye el archivo 'views/registro.php', que contiene la estructura y los campos
+     * necesarios para que los usuarios se registren en el sistema.
+     * 
+     * @return void No retorna ningún valor. En su lugar, muestra el formulario de registro de nuevos usuarios.
      */
     function formularioRegistro() {
         include 'views/registro.php';
     }
 
     /**
-     * Muestra el formulario de registro de nuevos usuarios.
+     * Muestra la página de sesión de usuarios.
+     * 
+     * Este método incluye el archivo 'views/sesion.php', que contiene la estructura y el contenido
+     * de la página de sesión de usuarios, donde los usuarios pueden interactuar después de iniciar sesión.
+     * 
+     * @return void No retorna ningún valor. En su lugar, muestra la página de sesión de usuarios.
      */
     function mostrarSesion() {
         include 'views/sesion.php';
@@ -67,6 +95,11 @@
 
     /**
      * Finaliza la sesión de usuario.
+     * 
+     * Este método elimina todas las variables de sesión y destruye completamente la sesión del usuario.
+     * Luego, muestra un mensaje indicando que la sesión ha sido cerrada.
+     * 
+     * @return void No retorna ningún valor. En su lugar, muestra un mensaje de confirmación de cierre de sesión.
      */
     function finalizarSesion() {
         session_unset();    // Elimina todas las variables de sesión.
@@ -78,14 +111,28 @@
     }
 
     /**
-     * Muestra el formulario de creación de artículos.
+     * Muestra el formulario para introducir un nuevo artículo.
+     * 
+     * Este método incluye el archivo 'views/introducirArticulo.php', que contiene el formulario
+     * para introducir un nuevo artículo en el sistema.
+     * 
+     * @return void No retorna ningún valor. En lugar de ello, muestra el formulario para introducir un nuevo artículo.
      */
     function introducirArticulo() {
         include 'views/introducirArticulo.php';
     }
 
     /**
-     * Envía los datos del artículo creado o editado al modelo.
+     * Procesa el formulario de creación o edición de un artículo.
+     * 
+     * Este método procesa los datos enviados a través del formulario de creación
+     * o edición de un artículo. Dependiendo de si se proporciona un ID de artículo,
+     * insertará un nuevo artículo en la base de datos o actualizará uno existente.
+     * 
+     * @param bool|int $id  (Opcional) El ID del artículo si se está editando, false si se está creando uno nuevo.
+     * 
+     * @return void         No retorna ningún valor. En lugar de ello, imprime un mensaje de éxito en caso de
+     *                      creación o edición exitosa del artículo.
      */
     function procesarFormularioArticulo($id=false) {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -115,7 +162,15 @@
     }
 
     /**
-     * Muestra el artículo de forma individual según ofrezca opción para editarse o no.
+     * Muestra un artículo de forma individual.
+     * 
+     * Este método recupera un artículo específico de la base de datos y lo muestra de forma individual en la vista.
+     * Dependiendo del valor del parámetro $edit, se puede ofrecer la opción de editar el artículo.
+     * 
+     * @param int $id     El ID del artículo que se desea mostrar.
+     * @param bool $edit  (Opcional) Indica si se ofrece la opción de editar el artículo. Por defecto, es false.
+     * 
+     * @return void No retorna ningún valor. En su lugar, muestra el artículo individual en la vista.
      */
     function mostrarArticuloIndividual($id, $edit = false) {
         include "models/publicaciones.php";
@@ -129,7 +184,14 @@
     }
 
     /**
-     * Envía los datos del artículo a eliminar al modelo.
+     * Elimina el artículo.
+     * 
+     * Este método envía los datos del artículo a eliminar al modelo correspondiente.
+     * Después de eliminar el artículo, muestra un mensaje indicando si la operación fue exitosa o no.
+     * 
+     * @param int $id El ID del artículo que se desea eliminar.
+     * 
+     * @return void No retorna ningún valor. En su lugar, muestra un mensaje indicando si el artículo fue eliminado correctamente.
      */
     function eliminarArticulo($id) {
         include "models/publicaciones.php";
@@ -149,7 +211,21 @@
     }
 
     /**
-     * Envía los datos del nuevo usuario al modelo.
+     * Procesa el formulario de registro de un nuevo usuario.
+     *
+     * Este método verifica los datos enviados a través del formulario de registro
+     * de un nuevo usuario. Se asegura de que se proporcionen el nombre de usuario,
+     * la contraseña y el correo electrónico. Luego, verifica si el formato del correo
+     * electrónico es válido y si el nombre de usuario ya está en uso. Finalmente,
+     * envía los datos al modelo para crear el nuevo usuario en la base de datos.
+     * 
+     * @link(https://www.php.net/manual/es/function.password-hash)
+     * @link(https://www.php.net/manual/es/function.in-array)
+     * @link(https://www.php.net/manual/es/function.filter-var)
+     *
+     * @return void No retorna ningún valor. En lugar de ello, muestra un mensaje de
+     *              éxito o una alerta en caso de error en el formato del correo electrónico
+     *              o si el nombre de usuario ya está en uso.
      */
     function procesarFormularioUsuario() {        
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -161,22 +237,47 @@
                 $contrasenia = password_hash($_POST["contrasenia"], PASSWORD_DEFAULT);
                 $email = $_POST["email"];
                 
+                // Abre conexión mediante la clase ConexionPublicaciones.
                 include 'models/publicaciones.php';
-
                 $publicacion = new ConexionPublicaciones();
+                $usuarios = $publicacion->getUsuarios();
 
-                $publicacion->introducirUsuario($usuario, $contrasenia, $email);
+                // Se realiza validación del email.
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    echo "<script>alert('El formato del correo electrónico es incorrecto. Por favor, introduce una dirección de correo válida.'); window.history.back()</script>";
+                }
+                // Se realiza validación de nombre de usuario para garantizar que no existen nombres repetidos.
+                else if (in_array($usuario, $usuarios)) {
+                    echo "<script>alert('El nombre no está disponible. Por favor, introduce otro nombre válido.'); window.history.back()</script>";
+                } 
+                else {                
+                    // include 'models/publicaciones.php';
+                    // $publicacion = new ConexionPublicaciones();
 
-                echo "<main style='text-align: center;'>";                
-                echo "<h3>Usuario creado con éxito, ya puedes acceder mediante Login a tu cuenta.</h3>";
-                echo "<a href='/' style='color: green;margin: auto;'>Continuar</a>";
-                echo "</main>";
+                    $publicacion->introducirUsuario($usuario, $contrasenia, $email);
+
+                    echo "<main style='text-align: center;'>";                
+                    echo "<h3>Usuario creado con éxito, ya puedes acceder mediante Login a tu cuenta.</h3>";
+                    echo "<a href='/' style='color: green;margin: auto;'>Continuar</a>";
+                    echo "</main>";
+                }
             }
         }        
     }
 
     /**
-     * Muestra los artículos filtrados por tipo.
+     * Filtra y muestra los artículos según su tipo.
+     *
+     * Este método filtra los artículos de la base de datos según el tipo especificado
+     * y luego muestra los resultados en la vista correspondiente. Dependiendo de la
+     * URL proporcionada en el formulario, se redirige a la página de sesión o se muestra
+     * la página principal. Este método se utiliza para mostrar los artículos filtrados
+     * por tipo en la interfaz de usuario.
+     *
+     * @param string $tipo El tipo de artículo por el que se desea filtrar.
+     * 
+     * @return void No retorna ningún valor. En lugar de ello, incluye la vista correspondiente
+     *              según la URL proporcionada en el formulario.
      */
     function filtrarArticulos($tipo) {
         $url = $_POST["url"];

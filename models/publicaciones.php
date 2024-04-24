@@ -37,7 +37,7 @@
          * @param string $tipo          El tipo/género del artículo.
          * @param string $usuario       Nombre del usuario creador.
          * 
-         * @return mysqli_result        Retorna true si la consulta se ejecutó correctamente.
+         * @return mysqli_result|bool   Retorna true si la consulta se ejecutó correctamente, false en caso contrario.
          *
          * @throws Exception            Si hay un fallo al ejecutar la consulta.
          */
@@ -48,6 +48,8 @@
 
             try {
                 $resultado = $con->query($query);
+                $con->close();
+                
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -56,6 +58,7 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
@@ -68,7 +71,7 @@
          * @param string $usuario       Nombre del usuario creador.
          * @param int $id               El ID del artículo que se actualizará.
          *
-         * @return mysqli_result        Retorna true si la consulta se ejecutó correctamente.
+         * @return mysqli_result|bool   Retorna true si la consulta se ejecutó correctamente, false en caso contrario.
          *
          * @throws Exception            Si hay un fallo al ejecutar la consulta.
          */
@@ -79,6 +82,8 @@
 
             try {
                 $resultado = $con->query($query);
+                $con->close();
+
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -87,21 +92,24 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
         /**
          * Obtiene todos los artículos almacenados en la base de datos.
          *
-         * @return mysqli_result    Retorna un objeto mysqli_result con los resultados de la consulta si se ejecuta correctamente.
+         * @return mysqli_result|bool   Retorna un objeto mysqli_result con los resultados de la consulta si se ejecuta correctamente, o false si hay un error.
          *
-         * @throws Exception        Si hay un fallo al ejecutar la consulta.
+         * @throws Exception            Si hay un fallo al ejecutar la consulta.
          */
         public function listarArticulos() {
             $con = $this->realizarConexion();
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos");
+                $con->close();
+
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -110,23 +118,26 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
         /**
          * Obtiene los artículos filtrados por tipo almacenados en la base de datos.
          *
-         * @param string $tipo      El tipo de artículo por el que se desea filtrar.
+         * @param string $tipo          El tipo de artículo por el que se desea filtrar.
          *
-         * @return mysqli_result    Retorna un objeto mysqli_result con los resultados de la consulta si se ejecuta correctamente.
+         * @return mysqli_result|bool   Retorna un objeto mysqli_result con los resultados de la consulta si se ejecuta correctamente, o false si hay un error.
          *
-         * @throws Exception        Si hay un fallo al ejecutar la consulta.
+         * @throws Exception            Si hay un fallo al ejecutar la consulta.
          */
         public function listarArticulosFiltrados($tipo) {
             $con = $this->realizarConexion();
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos WHERE tipo = '$tipo'");
+                $con->close();
+
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -135,6 +146,7 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
@@ -152,6 +164,8 @@
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos WHERE id = $id");
+                $con->close();
+
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -160,6 +174,7 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
@@ -177,6 +192,8 @@
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos WHERE id = $id");
+                $con->close();
+
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -185,6 +202,7 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
@@ -202,6 +220,8 @@
 
             try {
                 $resultado = $con->query("DELETE FROM articulos WHERE id = $id");
+                $con->close();
+
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -210,6 +230,7 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
@@ -230,6 +251,8 @@
 
             try {
                 $resultado = $con->query($query);
+                $con->close();
+
                 if ($resultado) {
                     return $resultado;
                 } 
@@ -238,14 +261,26 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 
+        /**
+         * Obtiene los datos de un usuario específico de la base de datos según su nombre.
+         *
+         * @param string $usuario           El nombre del usuario que se desea obtener.
+         *
+         * @return mysqli_result|bool       Retorna un objeto mysqli_result con los datos del usuario si se encuentra en la base de datos, o false si no se encuentra o hay un error.
+         *
+         * @throws Exception                Si hay un fallo al ejecutar la consulta.
+         */
         function getUsuario($usuario) {
             $con = $this->realizarConexion();
 
             try {
                 $resultado = $con->query("SELECT * FROM usuarios WHERE nombre = '$usuario'");
+                $con->close();
+                
                 if ($resultado) {                    
                     return $resultado;
                 } 
@@ -254,6 +289,39 @@
                 }
             } catch (Exception $e) {
                 echo "Error: " . $e->getMessage();
+                return false;
+            }
+        }
+
+        /**
+         * Obtiene los nombres de todos los usuarios almacenados en la base de datos.
+         *
+         * @return array|false               Retorna un array con los nombres de usuario si se encuentran en la base de datos, o false si no se encuentran o hay un error.
+         *
+         * @throws Exception                Si hay un fallo al ejecutar la consulta.
+         */
+        function getUsuarios() {
+            $con = $this->realizarConexion();
+
+            try {
+                $resultado = $con->query("SELECT nombre FROM usuarios");
+
+                if ($resultado) {                    
+                    $usuarios = [];
+                    while ($fila = $resultado->fetch_assoc()) {
+                        $usuarios[] = $fila['nombre'];
+                    }
+                    $con->close();
+
+                    return $usuarios;
+                } 
+                else {
+                    throw new Exception("No se encontró ningún usuario con ese nombre: " . $con->error);
+                    $con->close();
+                }
+            } catch (Exception $e) {
+                echo "Error: " . $e->getMessage();
+                return false;
             }
         }
 

@@ -1,5 +1,6 @@
 <?php
     /**
+     * @ignore
      * index.php como controlador frontal.
      */
 
