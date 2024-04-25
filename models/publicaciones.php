@@ -48,7 +48,6 @@
 
             try {
                 $resultado = $con->query($query);
-                $con->close();
                 
                 if ($resultado) {
                     return $resultado;
@@ -82,7 +81,6 @@
 
             try {
                 $resultado = $con->query($query);
-                $con->close();
 
                 if ($resultado) {
                     return $resultado;
@@ -108,7 +106,6 @@
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos");
-                $con->close();
 
                 if ($resultado) {
                     return $resultado;
@@ -136,7 +133,6 @@
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos WHERE tipo = '$tipo'");
-                $con->close();
 
                 if ($resultado) {
                     return $resultado;
@@ -164,7 +160,6 @@
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos WHERE id = $id");
-                $con->close();
 
                 if ($resultado) {
                     return $resultado;
@@ -192,7 +187,6 @@
 
             try {
                 $resultado = $con->query("SELECT * FROM articulos WHERE id = $id");
-                $con->close();
 
                 if ($resultado) {
                     return $resultado;
@@ -220,7 +214,6 @@
 
             try {
                 $resultado = $con->query("DELETE FROM articulos WHERE id = $id");
-                $con->close();
 
                 if ($resultado) {
                     return $resultado;
@@ -251,7 +244,6 @@
 
             try {
                 $resultado = $con->query($query);
-                $con->close();
 
                 if ($resultado) {
                     return $resultado;
@@ -279,7 +271,6 @@
 
             try {
                 $resultado = $con->query("SELECT * FROM usuarios WHERE nombre = '$usuario'");
-                $con->close();
                 
                 if ($resultado) {                    
                     return $resultado;
@@ -311,7 +302,6 @@
                     while ($fila = $resultado->fetch_assoc()) {
                         $usuarios[] = $fila['nombre'];
                     }
-                    $con->close();
 
                     return $usuarios;
                 } 
