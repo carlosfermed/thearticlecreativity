@@ -19,7 +19,7 @@
          * @param string $bd            Nombre de la base de datos. 
          * @return mysqli|null          Conexión a la base de datos.
          */
-        private function realizarConexion() {
+        public function realizarConexion() {
             try {
                 $conexion = new mysqli($this->servidor, $this->usuario, $this->contrasenia, $this->bd);
             } 
@@ -318,5 +318,3 @@
     }
 
 ?>
-
-<!--  Falta cerrar conexion $con->close() -->

@@ -1,6 +1,6 @@
 <?php 
 
-require_once("publicaciones.php");
+require_once("./models/publicaciones.php");
 use PHPUnit\Framework\TestCase;
 
 // Precaución: cualquier comprobación de los test altera de forma real los datos de la BBDD.
@@ -75,24 +75,24 @@ final class PublicacionesTest extends TestCase {
         $this->assertTrue($resultado);
     }
 
-    // public function testIntroducirUsuario(): void {
-    //     // Datos del usuario a insertar
-    //     $usuarioFormulario = "usuario123";
-    //     $contrasenia = "pass123";
-    //     $email = "usuario123@test.com";
+    public function testIntroducirUsuario(): void {
+        // Datos del usuario a insertar
+        $usuarioFormulario = "usuario123";
+        $contrasenia = "pass123";
+        $email = "usuario123@test.com";
     
-    //     // Crear una instancia de la clase que contiene la función introducirUsuario
-    //     $publicaciones = new ConexionPublicaciones();
+        // Crear una instancia de la clase que contiene la función introducirUsuario
+        $publicaciones = new ConexionPublicaciones();
     
-    //     // Llamar a la función introducirUsuario con los datos del usuario
-    //     $resultado = $publicaciones->introducirUsuario($usuarioFormulario, $contrasenia, $email);
+        // Llamar a la función introducirUsuario con los datos del usuario
+        $resultado = $publicaciones->introducirUsuario($usuarioFormulario, $contrasenia, $email);
     
-    //     // Verificar que el resultado no sea nulo
-    //     $this->assertNotNull($resultado);
+        // Verificar que el resultado no sea nulo
+        $this->assertNotNull($resultado);
     
-    //     // Verificar que el resultado sea verdadero (indicando que la inserción fue exitosa)
-    //     $this->assertTrue($resultado);
-    // }
+        // Verificar que el resultado sea verdadero (indicando que la inserción fue exitosa)
+        $this->assertTrue($resultado);
+    }
 
     public function testGetUsuario() {
         $nombreUsuario = "usuario123"; // Cambia este valor por un nombre de usuario existente en tu base de datos
