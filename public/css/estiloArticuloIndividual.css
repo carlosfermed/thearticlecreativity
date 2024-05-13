@@ -114,3 +114,12 @@ nav a:hover {
 .bordeNaranja {
     border: 2px solid orange;
 }
+
+@media screen and (max-height: 860px) {
+    body {
+        margin-bottom: 200px;
+    }
+    div {
+        width: 200px;
+    }
+}
