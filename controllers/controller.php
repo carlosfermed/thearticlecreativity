@@ -44,24 +44,28 @@
      * @return void No retorna ningún valor. En su lugar, inicia sesión para el usuario o muestra un mensaje de error.
      */
     function verificarLogin() {
-        session_start();
+        // session_start();
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (isset($_POST["usuario"]) && isset($_POST["contrasenia"])) {
+
                 include 'models/publicaciones.php';
-                
+                // Se recogen los datos de ambos campos del formulario.
                 $usuario = $_POST["usuario"];
                 $contrasenia = $_POST["contrasenia"];
-
+                // Se abre conexión con Base de datos y se recogen los datos del nombre de usuario.
                 $validar = new conexionPublicaciones();
                 $resultado = $validar->getUsuario($usuario);
                 $usuarioBD = $resultado->fetch_object();
-
+                // Se realiza la verificación que valida el proceso.
                 if ($usuarioBD != null) {
                     if (password_verify($contrasenia, $usuarioBD->contrasenia) && $usuario === $usuarioBD->nombre) {
                         $_SESSION["usuario"] = $usuario;   
                         header("Location: sesion");
                         exit; // exit();
+                    }
+                    else {
+                        echo "<h3><span style='color: red'>Credenciales incorrectas</span></h3>";       
                     }
                 } else 
                     echo "<h3><span style='color: red'>Credenciales incorrectas</span></h3>";                
@@ -237,16 +241,16 @@
                 $contrasenia = password_hash($_POST["contrasenia"], PASSWORD_DEFAULT);
                 $email = $_POST["email"];
                 
-                // Abre conexión mediante la clase ConexionPublicaciones.
+                // Se abre conexión mediante la clase ConexionPublicaciones.
                 include 'models/publicaciones.php';
                 $publicacion = new ConexionPublicaciones();
                 $usuarios = $publicacion->getUsuarios();
 
-                // Se realiza validación del email.
+                // Se realiza la validación del email.
                 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                     echo "<script>alert('El formato del correo electrónico es incorrecto. Por favor, introduce una dirección de correo válida.'); window.history.back()</script>";
                 }
-                // Se realiza validación de nombre de usuario para garantizar que no existen nombres repetidos.
+                // Se realiza la comprobación de nombre de usuario para garantizar que no existan duplicados.
                 else if (in_array($usuario, $usuarios)) {
                     echo "<script>alert('El nombre no está disponible. Por favor, introduce otro nombre válido.'); window.history.back()</script>";
                 } 

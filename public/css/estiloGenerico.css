@@ -137,12 +137,12 @@ input[type="submit"]:hover {
     background-color: #555;
 }
 
-/* style="position: fixed; top: 88%; left: 50%; transform: translate(-50%,-30%)" */
 #formularioBusqueda {
     position: fixed;
     width: 120px;
     top: 86%;
     right: 2%;
+    z-index: 4;
 }
 
 #mensajeIncidencia {
@@ -151,6 +151,7 @@ input[type="submit"]:hover {
     top: 90%;
     left: 2%;
     color: red;
+    z-index: 4;
 }
 
 
